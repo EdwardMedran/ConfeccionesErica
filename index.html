@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller Moda & Costura | Reparación y Confección de Ropa</title>
+    <title>Confecciones Erica | Reparación y Confección de Ropa</title>
     <style>
         :root {
             --primary: #5e548e;
@@ -55,40 +55,57 @@
             font-weight: 700;
             color: var(--primary);
         }
-        
         .nav-links {
-            display: flex;
-            list-style: none;
-        }
+  display: flex;              /* fila */
+  align-items: center;
+  gap: 28px;                  /* espacio entre items */
+  list-style: none;           /* sin viñetas */
+  margin: 0;                  /* sin márgenes del ul */
+  padding: 0;                 /* sin padding del ul */
+}
         
-        .nav-links li {
-            margin-left: 30px;
-        }
+        /* Estilo base */
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s ease-in-out, transform 0.3s;
+}
+
+/* Línea animada debajo */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;   /* distancia de la línea */
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover */
+.nav-links a:hover {
+    color: var(--primary);
+    transform: scale(1.1);  /* efecto de agrandar */
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
         
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary);
-        }
+        /* Botón */
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+.btn:hover { background-color: var(--secondary); }
         
         /* Hero */
         .hero {
@@ -402,6 +419,55 @@
                 display: none;
             }
         }
+        /* === Menú hamburguesa (móvil) === */
+.menu-toggle{
+  display:none;                /* se muestra solo en móvil */
+  gap:6px;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:40px;height:40px;
+  background:transparent;border:0;cursor:pointer;
+  transition:transform .2s ease;
+}
+.menu-toggle span{
+  display:block;width:24px;height:2px;
+  background:#333;border-radius:2px;
+  transition:all .3s ease;
+}
+.menu-toggle:hover{transform:scale(1.08)}
+.menu-toggle:hover span{background:var(--primary)}
+
+/* Panel móvil deslizante */
+.mobile-menu{
+  position:fixed;                 /* pegado al header */
+  top:72px; left:0; right:0;      /* ajusta si tu header es más alto/bajo */
+  background:#fff;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+  max-height:0;                   /* cerrado */
+  transition:max-height .35s ease;
+  z-index:99;
+}
+.mobile-menu.open{ max-height:420px; } /* suficiente para todos los links */
+.mobile-menu a{
+  display:block; padding:14px 22px;
+  color:var(--dark); text-decoration:none;
+  border-bottom:1px solid #eee;
+  transition:transform .2s,color .2s;
+}
+.mobile-menu a:hover{
+  color:var(--primary); transform:translateX(4px);
+}
+.mobile-menu .btn{
+  margin:14px 22px; display:block; text-align:center;
+}
+
+/* Responsive: ocultar menú de escritorio y mostrar botón */
+@media (max-width:768px){
+  .nav-links, nav .btn{ display:none; }
+  .menu-toggle{ display:flex; }
+}
     </style>
 </head>
 <body>
@@ -409,7 +475,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Moda & Costura</div>
+                <div class="logo">Confecciones Erica</div>
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
@@ -634,8 +700,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <p>Calle Costura 123, Local 45</p>
-                                <p>Centro Histórico, Ciudad</p>
+                                <a>Jr. Piura 747 Quilmaná, Cañete</a>
                             </div>
                         </div>
                         
@@ -646,8 +711,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <p>+52 55 1234 5678</p>
-                                <p>Lunes a Viernes: 9am - 7pm</p>
+                                <a>+51 971 040 163</a>
                             </div>
                         </div>
                         
@@ -658,16 +722,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <p>contacto@modaycostura.com</p>
+                                <p>ericapanchana@icloud.com</p>
                                 <p>Respuesta en menos de 24h</p>
                             </div>
                         </div>
                     </div>
                     
                     <h3>Horario de Atención</h3>
-                    <p>Lunes a Viernes: 9:00 - 19:00</p>
-                    <p>Sábados: 10:00 - 15:00</p>
-                    <p>Domingos: Cerrado</p>
+                    <p>Lunes a Sabado: 8:00am - 8:00pm</p>
+                    <p>Domingos: Con previa coordinación</p>
                 </div>
                 
                 <div class="contact-form">
@@ -675,14 +738,13 @@
                     <form id="contactForm">
                         <input type="text" placeholder="Nombre completo" required>
                         <input type="email" placeholder="Correo electrónico" required>
-                        <input type="tel" placeholder="Teléfono (opcional)">
+                        <input type="tel" placeholder="Teléfono">
                         <select required>
                             <option value="">Selecciona un servicio</option>
                             <option>Reparación de ropa</option>
                             <option>Confección personalizada</option>
                             <option>Ajustes y modificaciones</option>
                             <option>Restauración de prendas</option>
-                            <option>Servicio express</option>
                             <option>Asesoría personal</option>
                             <option>Otro</option>
                         </select>
@@ -697,7 +759,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="logo" style="color: white; margin-bottom: 20px;">Moda & Costura</div>
+            <div class="logo" style="color: white; margin-bottom: 20px;">Confecciones Erica</div>
             
             <ul class="footer-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -726,7 +788,7 @@
                 </a>
             </div>
             
-            <p class="copyright">© 2023 Taller Moda & Costura. Todos los derechos reservados.</p>
+            <p class="copyright">© 2025 Confecciones Erica. Todos los derechos reservados.</p>
         </div>
     </footer>
 
