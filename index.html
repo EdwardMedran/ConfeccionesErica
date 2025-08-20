@@ -1,819 +1,449 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confecciones Erica | Reparación y Confección de Ropa</title>
-    <style>
-        :root {
-            --primary: #5e548e;
-            --secondary: #9f86c0;
-            --accent: #e0b1cb;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --success: #28a745;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .nav-links {
-  display: flex;              /* fila */
-  align-items: center;
-  gap: 28px;                  /* espacio entre items */
-  list-style: none;           /* sin viñetas */
-  margin: 0;                  /* sin márgenes del ul */
-  padding: 0;                 /* sin padding del ul */
-}
-        
-        /* Estilo base */
-.nav-links a {
-    position: relative;
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: color 0.3s ease-in-out, transform 0.3s;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confecciones Erica | Reparación y Confección de Ropa</title>
+  <style>
+    :root{
+      --primary:#5e548e;--secondary:#9f86c0;--accent:#e0b1cb;--light:#f8f9fa;--dark:#212529;--success:#28a745;
+      --header-h:72px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+    body{line-height:1.6;color:var(--dark);background-color:var(--light)}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 
-/* Línea animada debajo */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;   /* distancia de la línea */
-    width: 0%;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease-in-out;
-}
+    /* Header */
+    header{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:100}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+    .logo{font-size:24px;font-weight:700;color:var(--primary)}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{position:relative;text-decoration:none;color:var(--dark);font-weight:500;transition:color .3s,transform .3s}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--primary);transition:width .3s}
+    .nav-links a:hover{color:var(--primary);transform:scale(1.06)}
+    .nav-links a:hover::after{width:100%}
+    .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;transition:background-color .3s}
+    .btn:hover{background:var(--secondary)}
 
-/* Hover */
-.nav-links a:hover {
-    color: var(--primary);
-    transform: scale(1.1);  /* efecto de agrandar */
-}
+    /* Hero full alto y centrado */
+    .hero{
+      width:100%;
+      min-height:calc(100vh - var(--header-h));
+      padding:24px 0 48px;
+      margin-top:var(--header-h);     /* compensa el header fijo */
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;color:#fff;
+      background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+                 url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2efc5bed-d8a3-4ab3-888f-200145820ecd.png') center/cover no-repeat;
+    }
+    .hero h1{font-size:48px;margin-bottom:20px}
+    .hero p{font-size:20px;max-width:700px;margin:0 auto 30px}
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-        
-        /* Botón */
-.btn {
-  display: inline-block;
-  background-color: var(--primary);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color .3s;
-}
-.btn:hover { background-color: var(--secondary); }
-        
-        /* Hero */
-        .hero {
-            padding-top: 100px;
-            padding-bottom: 80px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2efc5bed-d8a3-4ab3-888f-200145820ecd.png') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Services */
-        .services {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-content h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        /* Gallery */
-        .gallery {
-            padding: 80px 0;
-            background-color: #f5f5f5;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            font-size: 80px;
-            color: var(--accent);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.2;
-        }
-        
-        .testimonial-content {
-            margin-bottom: 20px;
-            font-style: italic;
-            color: #555;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-        
-        .author-info h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        /* Contact */
-        .contact {
-            padding: 80px 0;
-            background-color: #f5f5f5;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .social-link:hover {
-            background-color: var(--accent);
-        }
-        
-        .copyright {
-            color: rgba(255,255,255,0.7);
-            font-size: 14px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-        /* === Menú hamburguesa (móvil) === */
-.menu-toggle{
-  display:none;                /* se muestra solo en móvil */
-  gap:6px;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  width:40px;height:40px;
-  background:transparent;border:0;cursor:pointer;
-  transition:transform .2s ease;
-}
-.menu-toggle span{
-  display:block;width:24px;height:2px;
-  background:#333;border-radius:2px;
-  transition:all .3s ease;
-}
-.menu-toggle:hover{transform:scale(1.08)}
-.menu-toggle:hover span{background:var(--primary)}
+    /* Secciones */
+    .services{padding:80px 0}
+    .section-title{text-align:center;margin-bottom:50px}
+    .section-title h2{font-size:36px;color:var(--primary);margin-bottom:15px}
+    .section-title p{color:#666;max-width:700px;margin:0 auto}
 
-/* Panel móvil deslizante */
-.mobile-menu{
-  position:fixed;                 /* pegado al header */
-  top:72px; left:0; right:0;      /* ajusta si tu header es más alto/bajo */
-  background:#fff;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  overflow:hidden;
-  max-height:0;                   /* cerrado */
-  transition:max-height .35s ease;
-  z-index:99;
-}
-.mobile-menu.open{ max-height:420px; } /* suficiente para todos los links */
-.mobile-menu a{
-  display:block; padding:14px 22px;
-  color:var(--dark); text-decoration:none;
-  border-bottom:1px solid #eee;
-  transition:transform .2s,color .2s;
-}
-.mobile-menu a:hover{
-  color:var(--primary); transform:translateX(4px);
-}
-.mobile-menu .btn{
-  margin:14px 22px; display:block; text-align:center;
-}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+    .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:transform .3s}
+    .service-card:hover{transform:translateY(-10px)}
+    .service-img{height:200px;overflow:hidden}
+    .service-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .service-card:hover .service-img img{transform:scale(1.1)}
+    .service-content{padding:20px}
+    .service-content h3{font-size:22px;margin-bottom:10px;color:var(--primary)}
 
-/* Responsive: ocultar menú de escritorio y mostrar botón */
-@media (max-width:768px){
-  .nav-links, nav .btn{ display:none; }
-  .menu-toggle{ display:flex; }
-}
-    </style>
+    .gallery{padding:80px 0;background:#f5f5f5}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .gallery-item{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+    .gallery-item img{width:100%;height:250px;object-fit:cover;transition:transform .5s}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-overlay{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;padding:20px;transform:translateY(100%);transition:transform .3s}
+    .gallery-item:hover .gallery-overlay{transform:translateY(0)}
+
+    .testimonials{padding:80px 0}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+    .testimonial-card{background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.05);position:relative}
+    .testimonial-card::before{content:'"';font-size:80px;color:var(--accent);position:absolute;top:10px;left:20px;opacity:.2}
+    .testimonial-content{margin-bottom:20px;font-style:italic;color:#555}
+    .testimonial-author{display:flex;align-items:center}
+    .testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:15px}
+    .author-info h4{color:var(--primary);margin-bottom:5px}
+
+    .contact{padding:80px 0;background:#f5f5f5}
+    .contact-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px}
+    .contact-info h3{font-size:24px;color:var(--primary);margin-bottom:20px}
+    .contact-details{margin-bottom:30px}
+    .contact-item{display:flex;align-items:center;margin-bottom:15px}
+    .contact-icon{width:40px;height:40px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px}
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:20px;border:1px solid #ddd;border-radius:5px;font-size:16px}
+    .contact-form textarea{height:150px;resize:vertical}
+
+    footer{background:var(--dark);color:#fff;padding:50px 0 20px;text-align:center}
+    .footer-links{display:flex;justify-content:center;list-style:none;margin-bottom:30px}
+    .footer-links li{margin:0 15px}
+    .footer-links a{color:#fff;text-decoration:none;transition:color .3s}
+    .footer-links a:hover{color:var(--accent)}
+    .social-links{display:flex;justify-content:center;margin-bottom:30px}
+    .social-link{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 10px;color:#fff;text-decoration:none;transition:background-color .3s}
+    .social-link:hover{background:var(--accent)}
+    .copyright{color:rgba(255,255,255,.7);font-size:14px}
+
+    /* === Menú hamburguesa (móvil) === */
+    .menu-toggle{display:none;gap:6px;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;background:transparent;border:0;cursor:pointer;transition:transform .2s}
+    .menu-toggle span{display:block;width:24px;height:2px;background:#333;border-radius:2px;transition:all .3s}
+    .menu-toggle:hover{transform:scale(1.08)}
+    .menu-toggle:hover span{background:var(--primary)}
+
+    .mobile-menu{
+      position:fixed;left:0;right:0;top:var(--header-h);
+      background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.08);
+      overflow:hidden;max-height:0;transition:max-height .35s ease;z-index:99
+    }
+    .mobile-menu.open{max-height:420px}
+    .mobile-menu a{display:block;padding:14px 22px;color:var(--dark);text-decoration:none;border-bottom:1px solid #eee;transition:transform .2s,color .2s}
+    .mobile-menu a:hover{color:var(--primary);transform:translateX(4px)}
+    .mobile-menu .btn{margin:14px 22px;display:block;text-align:center}
+
+    /* Responsive */
+    @media (max-width:768px){
+      .nav-links, nav .btn{display:none}
+      .menu-toggle{display:flex}
+      .hero h1{font-size:36px}
+      .hero p{font-size:18px}
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Confecciones Erica</div>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-                <a href="#contacto" class="btn">Cotizar</a>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <h1>Taller de Reparación y Confección de Ropa</h1>
-            <p>Transformamos tus prendas con técnicas profesionales de costura y diseño. Desde arreglos sencillos hasta creaciones personalizadas.</p>
-            <a href="#servicios" class="btn">Nuestros Servicios</a>
-        </div>
-    </section>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Confecciones Erica</div>
 
-    <!-- Services -->
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos soluciones profesionales para todas tus necesidades de moda y costura.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Máquina de coser industrial con varias prendas de vestir en proceso de reparación" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Reparación de Ropa</h3>
-                        <p>Arreglamos todo tipo de prendas: desde costuras rotas hasta cambios de cremalleras y parches invisibles.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Diseñadora midiendo tela sobre mesa de trabajo con patrones y tijeras" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Confección Personalizada</h3>
-                        <p>Creamos prendas únicas según tus medidas y estilo, con telas de alta calidad y acabados impecables.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Vestido de novia siendo ajustado por costurera en maniquí de lujo" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Ajustes y Modificaciones</h3>
-                        <p>Adaptamos tus prendas favoritas a tu talla actual o las modernizamos con detalles de diseño contemporáneo.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f8b7284a-a72f-4a0c-abaf-aff731cfaf0e.png" alt="Colección de chaquetas de cuero siendo restauradas con herramientas especializadas" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Restauración de Prendas</h3>
-                        <p>Devolvemos la vida a prendas antiguas o sentimentales con técnicas profesionales de limpieza y reparación.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5764f198-d11d-4039-b1f5-6b6e32eca08e.png" alt="Variedad de botones, hilos y accesorios de costura organizados en cajonera" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Servicio Express</h3>
-                        <p>Arreglos urgentes con entrega en 24 horas para esas emergencias de última hora que no pueden esperar.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/102d710e-a36a-4d22-a892-29d745401474.png" alt="Grupo de costureras trabajando en taller luminoso con máquinas modernas" />
-                    </div>
-                    <div class="service-content">
-                        <h3>Asesoría Personal</h3>
-                        <p>Te guiamos en el cuidado de tus prendas y te enseñamos técnicas básicas de reparación para hacer en casa.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Menú escritorio -->
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
 
-    <!-- Gallery -->
-    <section class="gallery" id="galeria">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Trabajos</h2>
-                <p>Algunos ejemplos de nuestro trabajo y transformaciones realizadas.</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/98dd50e7-1edd-41a8-98df-c44f11f018d4.png" alt="Vestido de noche negro antes y después de ser ajustado al cuerpo" />
-                    <div class="gallery-overlay">
-                        <h3>Ajuste de Vestido</h3>
-                        <p>Reducción de talla con preservación de detalles originales</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Chaqueta de cuero vintage restaurada con nuevos forros y cierres" />
-                    <div class="gallery-overlay">
-                        <h3>Restauración de Chaqueta</h3>
-                        <p>Reemplazo de forro y cremalleras con materiales de alta calidad</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Conjunto de pantalón y blazer a medida en tela azul marino" />
-                    <div class="gallery-overlay">
-                        <h3>Traje a Medida</h3>
-                        <p>Confección completa desde cero según medidas del cliente</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Jeans desgastados transformados en shorts modernos con bordados" />
-                    <div class="gallery-overlay">
-                        <h3>Transformación Creativa</h3>
-                        <p>Reciclaje de prendas antiguas en diseños modernos</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestido de novia con detalles de encaje siendo medido en maniquí" />
-                    <div class="gallery-overlay">
-                        <h3>Ajuste de Vestido de Novia</h3>
-                        <p>Modificaciones para adaptar vestido heredado a nueva usuaria</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos" />
-                    <div class="gallery-overlay">
-                        <h3>Reparaciones Invisibles</h3>
-                        <p>Técnicas profesionales para daños imperceptibles</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <a href="#contacto" class="btn">Cotizar</a>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <p>Testimonios reales de personas que han confiado en nuestro trabajo.</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Llevé mi chaqueta favorita que tenía rota desde hace años y la devolvieron como nueva. No se nota para nada la reparación. ¡Increíble trabajo!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Retrato de Carlos Mendez, cliente satisfecho sonriendo" />
-                        <div class="author-info">
-                            <h4>Carlos Méndez</h4>
-                            <p>Cliente desde 2019</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Necesitaba un vestido especial para una gala y no encontraba nada en las tiendas. Crearon exactamente lo que quería, con un ajuste perfecto. ¡Quedé encantada!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Retrato de Ana Rodríguez, clienta elegante con vestido de fiesta" />
-                        <div class="author-info">
-                            <h4>Ana Rodríguez</h4>
-                            <p>Cliente desde 2020</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Como hombre alto, siempre he tenido problemas para encontrar ropa que me quede bien. Ahora tengo varias camisas y pantalones hechos a medida a un precio razonable.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Retrato de Javier Torres, cliente alto con traje a medida" />
-                        <div class="author-info">
-                            <h4>Javier Torres</h4>
-                            <p>Cliente desde 2018</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Botón hamburguesa (móvil) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
 
-    <!-- Contact -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contáctanos</h2>
-                <p>Estamos aquí para ayudarte con todas tus necesidades de costura y diseño.</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <a>Jr. Piura 747 Quilmaná, Cañete</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.631 18.631 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <a>+51 971 040 163</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p>ericapanchana@icloud.com</p>
-                                <p>Respuesta en menos de 24h</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3>Horario de Atención</h3>
-                    <p>Lunes a Sabado: 8:00am - 8:00pm</p>
-                    <p>Domingos: Con previa coordinación</p>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Envíanos un Mensaje</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Correo electrónico" required>
-                        <input type="tel" placeholder="Teléfono">
-                        <select required>
-                            <option value="">Selecciona un servicio</option>
-                            <option>Reparación de ropa</option>
-                            <option>Confección personalizada</option>
-                            <option>Ajustes y modificaciones</option>
-                            <option>Restauración de prendas</option>
-                            <option>Asesoría personal</option>
-                            <option>Otro</option>
-                        </select>
-                        <textarea placeholder="Describe tu proyecto o necesidad" required></textarea>
-                        <button type="submit" class="btn">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Panel móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn">Cotizar</a>
+    </div>
+  </header>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="logo" style="color: white; margin-bottom: 20px;">Confecciones Erica</div>
-            
-            <ul class="footer-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-            
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <p class="copyright">© 2025 Confecciones Erica. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <h1>Taller de Reparación y Confección de Ropa</h1>
+      <p>Transformamos tus prendas con técnicas profesionales de costura y diseño. Desde arreglos sencillos hasta creaciones personalizadas.</p>
+      <a href="#servicios" class="btn">Nuestros Servicios</a>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-            this.reset();
-        });
-        
-        // Mobile menu toggle (would need additional HTML)
-        // This is just a placeholder for future implementation
-    </script>
+  <!-- Services -->
+  <section class="services" id="servicios">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros Servicios</h2>
+        <p>Ofrecemos soluciones profesionales para todas tus necesidades de moda y costura.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Máquina de coser industrial con varias prendas de vestir en proceso de reparación"/>
+          </div>
+          <div class="service-content">
+            <h3>Reparación de Ropa</h3>
+            <p>Arreglamos todo tipo de prendas: desde costuras rotas hasta cambios de cremalleras y parches invisibles.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Diseñadora midiendo tela sobre mesa de trabajo con patrones y tijeras"/>
+          </div>
+          <div class="service-content">
+            <h3>Confección Personalizada</h3>
+            <p>Creamos prendas únicas según tus medidas y estilo, con telas de alta calidad y acabados impecables.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Vestido de novia siendo ajustado por costurera en maniquí de lujo"/>
+          </div>
+          <div class="service-content">
+            <h3>Ajustes y Modificaciones</h3>
+            <p>Adaptamos tus prendas favoritas a tu talla actual o las modernizamos con detalles de diseño contemporáneo.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f8b7284a-a72f-4a0c-abaf-aff731cfaf0e.png" alt="Colección de chaquetas de cuero siendo restauradas con herramientas especializadas"/>
+          </div>
+          <div class="service-content">
+            <h3>Restauración de Prendas</h3>
+            <p>Devolvemos la vida a prendas antiguas o sentimentales con técnicas profesionales de limpieza y reparación.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5764f198-d11d-4039-b1f5-6b6e32eca08e.png" alt="Variedad de botones, hilos y accesorios de costura organizados en cajonera"/>
+          </div>
+          <div class="service-content">
+            <h3>Servicio Express</h3>
+            <p>Arreglos urgentes con entrega en 24 horas para esas emergencias de última hora que no pueden esperar.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/102d710e-a36a-4d22-a892-29d745401474.png" alt="Grupo de costureras trabajando en taller luminoso con máquinas modernas"/>
+          </div>
+          <div class="service-content">
+            <h3>Asesoría Personal</h3>
+            <p>Te guiamos en el cuidado de tus prendas y te enseñamos técnicas básicas de reparación para hacer en casa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros Trabajos</h2>
+        <p>Algunos ejemplos de nuestro trabajo y transformaciones realizadas.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/98dd50e7-1edd-41a8-98df-c44f11f018d4.png" alt="Vestido de noche negro antes y después de ser ajustado al cuerpo"/>
+          <div class="gallery-overlay">
+            <h3>Ajuste de Vestido</h3><p>Reducción de talla con preservación de detalles originales</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Chaqueta de cuero vintage restaurada con nuevos forros y cierres"/>
+          <div class="gallery-overlay">
+            <h3>Restauración de Chaqueta</h3><p>Reemplazo de forro y cremalleras con materiales de alta calidad</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Conjunto de pantalón y blazer a medida en tela azul marino"/>
+          <div class="gallery-overlay">
+            <h3>Traje a Medida</h3><p>Confección completa desde cero según medidas del cliente</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Jeans desgastados transformados en shorts modernos con bordados"/>
+          <div class="gallery-overlay">
+            <h3>Transformación Creativa</h3><p>Reciclaje de prendas antiguas en diseños modernos</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestido de novia con detalles de encaje siendo medido en maniquí"/>
+          <div class="gallery-overlay">
+            <h3>Ajuste de Vestido de Novia</h3><p>Modificaciones para adaptar vestido heredado a nueva usuaria</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
+          <div class="gallery-overlay">
+            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonios">
+    <div class="container">
+      <div class="section-title">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p>Testimonios reales de personas que han confiado en nuestro trabajo.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>Llevé mi chaqueta favorita que tenía rota desde hace años y la devolvieron como nueva. No se nota para nada la reparación. ¡Increíble trabajo!</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Retrato de Carlos Mendez, cliente satisfecho sonriendo"/>
+            <div class="author-info"><h4>Carlos Méndez</h4><p>Cliente desde 2019</p></div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>Necesitaba un vestido especial para una gala y no encontraba nada en las tiendas. Crearon exactamente lo que quería, con un ajuste perfecto. ¡Quedé encantada!</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Retrato de Ana Rodríguez, clienta elegante con vestido de fiesta"/>
+            <div class="author-info"><h4>Ana Rodríguez</h4><p>Cliente desde 2020</p></div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>Como hombre alto, siempre he tenido problemas para encontrar ropa que me quede bien. Ahora tengo varias camisas y pantalones hechos a medida a un precio razonable.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Retrato de Javier Torres, cliente alto con traje a medida"/>
+            <div class="author-info"><h4>Javier Torres</h4><p>Cliente desde 2018</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contáctanos</h2>
+        <p>Estamos aquí para ayudarte con todas tus necesidades de costura y diseño.</p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              </div>
+              <div><a>Jr. Piura 747 Quilmaná, Cañete</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.631 18.631 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              </div>
+              <div><a>+51 971 040 163</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
+              </div>
+              <div>
+                <p>ericapanchana@icloud.com</p>
+                <p>Respuesta en menos de 24h</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Horario de Atención</h3>
+          <p>Lunes a Sabado: 8:00am - 8:00pm</p>
+          <p>Domingos: Con previa coordinación</p>
+        </div>
+
+        <div class="contact-form">
+          <h3>Envíanos un Mensaje</h3>
+          <form id="contactForm">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="tel" placeholder="Teléfono">
+            <select required>
+              <option value="">Selecciona un servicio</option>
+              <option>Reparación de ropa</option>
+              <option>Confección personalizada</option>
+              <option>Ajustes y modificaciones</option>
+              <option>Restauración de prendas</option>
+              <option>Asesoría personal</option>
+              <option>Otro</option>
+            </select>
+            <textarea placeholder="Describe tu proyecto o necesidad" required></textarea>
+            <button type="submit" class="btn">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="logo" style="color:#fff;margin-bottom:20px">Confecciones Erica</div>
+      <ul class="footer-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="#" class="social-link"> <!-- Facebook --></a>
+        <a href="#" class="social-link"> <!-- Instagram --></a>
+        <a href="#" class="social-link"> <!-- Twitter --></a>
+      </div>
+      <p class="copyright">© 2025 Confecciones Erica. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href'); if(!id||id==='#') return;
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault(); alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'); e.target.reset();
+    });
+
+    // Menú móvil
+    const btn = document.getElementById('menuToggle');
+    const panel = document.getElementById('mobileMenu');
+    btn.addEventListener('click',()=>{
+      const open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true':'false');
+    });
+    panel.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=>{
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  </script>
 </body>
 </html>
-
