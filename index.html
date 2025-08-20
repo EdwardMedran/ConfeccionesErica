@@ -14,7 +14,19 @@
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 
     /* Header */
-    header{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:100}
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
+
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  backdrop-filter: blur(10px); /* Difuminado detrás */
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  z-index: 100;
+}
     nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
     .logo{font-size:24px;font-weight:700;color:var(--primary)}
     .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
@@ -34,7 +46,7 @@
       display:flex;align-items:center;justify-content:center;
       text-align:center;color:#fff;
       background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-                 url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2efc5bed-d8a3-4ab3-888f-200145820ecd.png') center/cover no-repeat;
+                 url('/img/fondoDifuminado.png') center/cover no-repeat;
     }
     .hero h1{font-size:48px;margin-bottom:20px}
     .hero p{font-size:20px;max-width:700px;margin:0 auto 30px}
@@ -113,7 +125,37 @@
       .hero h1{font-size:36px}
       .hero p{font-size:18px}
     }
+
+    .custom-select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    background: #fff;
+    border: 2px solid #e0b1cb;  /* rosado pastel */
+    border-radius: 8px;
+    outline: none;
+    appearance: none; /* quita el estilo por defecto */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%239f86c0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-select:focus {
+    border-color: #9f86c0;  /* morado más fuerte */
+    box-shadow: 0 0 6px rgba(159, 134, 192, 0.5);
+  }
+
+  .custom-select option {
+    padding: 12px;
+    }
   </style>
+  
 </head>
 <body>
 
@@ -157,7 +199,7 @@
     <div class="container">
       <h1>Taller de Reparación y Confección de Ropa</h1>
       <p>Transformamos tus prendas con técnicas profesionales de costura y diseño. Desde arreglos sencillos hasta creaciones personalizadas.</p>
-      <a href="#servicios" class="btn">Nuestros Servicios</a>
+      <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" class="btn">Escribenos al WhastApp</a>
     </div>
   </section>
 
@@ -283,6 +325,20 @@
             <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
           </div>
         </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
+          <div class="gallery-overlay">
+            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
+          <div class="gallery-overlay">
+            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -346,15 +402,23 @@
               <div class="contact-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
               </div>
-              <div><a>Jr. Piura 747 Quilmaná, Cañete</a></div>
+              <div><a href="https://maps.app.goo.gl/V3Wpr2tpYiz35BMc8" target="_blank">Jr. Piura 747 Quilmaná, Cañete</a></div>
             </div>
 
             <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.631 18.631 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
-              </div>
-              <div><a>+51 971 040 163</a></div>
-            </div>
+        <div class="contact-icon">
+            <!-- Logo WhatsApp corregido -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.39 0 .01 5.38.01 12.02c0 2.12.55 4.19 1.59 6.01L0 24l6.15-1.6a11.94 11.94 0 0 0 5.89 1.52h.01c6.63 0 12.01-5.38 12.01-12.01 0-3.2-1.25-6.21-3.54-8.43zM12.05 21.2c-1.85 0-3.66-.5-5.23-1.44l-.37-.22-3.64.95.97-3.55-.24-.37A9.18 9.18 0 0 1 2.8 12c0-5.1 4.15-9.25 9.25-9.25 2.47 0 4.78.96 6.52 2.69a9.17 9.17 0 0 1 2.73 6.56c0 5.1-4.15 9.2-9.25 9.2zm5.14-6.9c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.19-.32.21-.6.07-1.65-.82-2.74-1.46-3.84-3.31-.29-.5.29-.46.83-1.52.09-.19.05-.36-.02-.5-.07-.14-.61-1.46-.83-2-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01a1 1 0 0 0-.73.34c-.25.27-.95.93-.95 2.26 0 1.33.97 2.62 1.11 2.8.14.19 1.91 2.92 4.63 4.09.65.28 1.16.45 1.55.58.65.2 1.25.17 1.72.1.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.19-.53-.33z"/>
+            </svg>
+        </div>
+        <div>
+    <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener">
+      +51 971 040 163
+    </a>
+  </div>
+</div>
+
 
             <div class="contact-item">
               <div class="contact-icon">
@@ -378,7 +442,7 @@
             <input type="text" placeholder="Nombre completo" required>
             <input type="email" placeholder="Correo electrónico" required>
             <input type="tel" placeholder="Teléfono">
-            <select required>
+            <select required class="custom-select">
               <option value="">Selecciona un servicio</option>
               <option>Reparación de ropa</option>
               <option>Confección personalizada</option>
@@ -408,10 +472,28 @@
         <li><a href="#">Política de Privacidad</a></li>
       </ul>
       <div class="social-links">
-        <a href="#" class="social-link"> <!-- Facebook --></a>
-        <a href="#" class="social-link"> <!-- Instagram --></a>
-        <a href="#" class="social-link"> <!-- Twitter --></a>
-      </div>
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/erica.panchana" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94Z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/ericapanchanatorres/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.25a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 18 6.25Z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48.03.2 5.31.22 11.87A11.8 11.8 0 0 0 2.4 18L0 24l6.2-2.33a11.86 11.86 0 0 0 5.83 1.52h.01c6.56-.02 11.84-5.3 11.86-11.86A11.83 11.83 0 0 0 20.52 3.48ZM12 21.05h-.01a9.94 9.94 0 0 1-5.07-1.38l-.36-.21-3.69 1.38 1.37-3.6-.24-.37A9.92 9.92 0 1 1 12 21.05Zm5.49-7.45c-.3-.15-1.77-.87-2.05-.97s-.48-.15-.68.15-.78.97-.96 1.17-.36.22-.66.07a8.15 8.15 0 0 1-2.4-1.48 8.96 8.96 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6.13-.13.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37 0-.52s-.6-1.45-.83-1.98c-.22-.52-.45-.45-.63-.46l-.54-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09 2.11 3.23 5.11 4.52c.72.31 1.29.51 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.8-.73 2.05-1.43.25-.7.25-1.31.17-1.45-.08-.14-.28-.2-.59-.35Z"/>
+    </svg>
+  </a>
+</div>
+
       <p class="copyright">© 2025 Confecciones Erica. Todos los derechos reservados.</p>
     </div>
   </footer>
