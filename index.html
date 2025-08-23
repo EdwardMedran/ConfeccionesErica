@@ -30,8 +30,8 @@
     /* Secciones */
     .services{padding:80px 0}
     .section-title{text-align:center;margin-bottom:50px}
-    .section-title h2{font-size:36px;color:var(--primary);margin-bottom:15px}
-    .section-title p{color:#666;max-width:700px;margin:0 auto}
+    .section-title h2{font-size:36px;margin-bottom:15px}
+    .section-title p{max-width:700px;margin:0 auto}
 
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
     .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:transform .3s}
@@ -59,9 +59,28 @@
     .testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:15px}
     .author-info h4{color:var(--primary);margin-bottom:5px}
 
-    .contact{padding:80px 0;background:#f5f5f5}
+.contact {
+  position: relative;
+  padding: 80px 0;
+  background: url("img/fondoDifuminado2.png") center/cover no-repeat;
+}
+
+/* Capa de oscurecimiento */
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* 50% negro encima */
+  z-index: 1;
+}
+
+/* Asegura que el contenido esté encima del overlay */
+.contact > * {
+  position: relative;
+  z-index: 2;
+}
     .contact-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px}
-    .contact-info h3{font-size:24px;color:var(--primary);margin-bottom:20px}
+    .contact-info h3{font-size:24px;color:#fff;margin-bottom:20px}
     .contact-details{margin-bottom:30px}
     .contact-item{display:flex;align-items:center;margin-bottom:15px}
     .contact-icon{width:40px;height:40px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px}
@@ -220,8 +239,8 @@
   <section class="services" id="servicios">
     <div class="container">
       <div class="section-title">
-        <h2>Nuestros Servicios</h2>
-        <p>Ofrecemos soluciones profesionales para todas tus necesidades de moda y costura.</p>
+        <h2 class="text-[#ada6cc]">Nuestros Servicios</h2>
+        <p class="text-[#9e9e9e]">Ofrecemos soluciones profesionales para todas tus necesidades de moda y costura.</p>
       </div>
 
       <div class="services-grid">
@@ -292,8 +311,8 @@
   <section class="gallery" id="galeria">
     <div class="container">
       <div class="section-title">
-        <h2>Nuestros Trabajos</h2>
-        <p>Algunos ejemplos de nuestro trabajo y transformaciones realizadas.</p>
+        <h2 class="text-[#ada6cc]">Nuestros Trabajos</h2>
+        <p class="text-[#9e9e9e]">Algunos ejemplos de nuestro trabajo y transformaciones realizadas.</p>
       </div>
 
       <div class="gallery-grid">
@@ -360,8 +379,8 @@
   <section class="testimonials" id="testimonios">
     <div class="container">
       <div class="section-title">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <p>Testimonios reales de personas que han confiado en nuestro trabajo.</p>
+        <h2 class="text-[#ada6cc]">Lo que dicen nuestros clientes</h2>
+        <p class="text-[#9e9e9e]">Testimonios reales de personas que han confiado en nuestro trabajo.</p>
       </div>
 
       <div class="testimonial-grid">
@@ -402,20 +421,20 @@
   <section class="contact" id="contacto">
     <div class="container">
       <div class="section-title">
-        <h2>Contáctanos</h2>
-        <p>Estamos aquí para ayudarte con todas tus necesidades de costura y diseño.</p>
+        <h2 class="text-white">Contáctanos</h2>
+        <p class="text-white">Estamos aquí para ayudarte con todas tus necesidades de costura y diseño.</p>
       </div>
 
       <div class="contact-container">
         <div class="relative mx-auto max-w-5xl px-8">
-          <h3 class="text-xl font-bold mb-4">Información de Contacto</h3>
+          <h3 class="text-xl font-bold mb-4 text-white">Información de Contacto</h3>
 
           <div class="contact-details">
             <div class="contact-item">
               <div class="contact-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
               </div>
-              <div><a href="https://maps.app.goo.gl/V3Wpr2tpYiz35BMc8" target="_blank">Jr. Piura 747 Quilmaná, Cañete</a></div>
+              <div><a class="text-white" href="https://maps.app.goo.gl/V3Wpr2tpYiz35BMc8" target="_blank">Jr. Piura 747 Quilmaná, Cañete</a></div>
             </div>
 
             <div class="contact-item">
@@ -426,7 +445,7 @@
             </svg>
         </div>
         <div>
-    <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener">
+    <a class="text-white" href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener">
       +51 971 040 163
     </a>
   </div>
@@ -438,33 +457,33 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
               </div>
               <div>
-                <p>ericapanchana@icloud.com</p>
-                <p>Respuesta en menos de 24h</p>
+                <p class="text-white">ericapanchana@icloud.com</p>
+                <p class="text-white">Respuesta en menos de 24h</p>
               </div>
             </div>
           </div>
 
-          <h3 class="text-xl font-bold mb-4">Horario de Atención</h3>
-          <p>Lunes a Sabado: 8:00am - 8:00pm</p>
-          <p>Domingos: Con previa coordinación</p>
+          <h3 class="text-xl font-bold mb-4 text-white">Horario de Atención</h3>
+          <p class="text-white">Lunes a Sabado: 8:00am - 8:00pm</p>
+          <p class="text-white">Domingos: Con previa coordinación</p>
         </div>
 
         <div>
           <form class="space-y-6" id="contactForm" action="" method="POST">
             <div>
-              <label for="name" class="block text-sm font-medium mb-1">Nombre Completo</label>
+              <label for="name" class="block text-sm font-medium mb-1 text-white">Nombre Completo</label>
               <input id="name" type="text" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
+              <label for="email" class="block text-sm font-medium mb-1 text-white">Correo Electrónico</label>
               <input id="email" type="email" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
             </div>
             <div>
-              <label for="phone" class="block text-sm font-medium mb-1">Teléfono</label>
+              <label for="phone" class="block text-sm font-medium mb-1 text-white">Teléfono</label>
               <input id="phone" type="tel" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
             </div>
             <div>
-              <label for="service" class="block text-sm font-medium mb-1">Servicio de Interés</label>
+              <label for="service" class="block text-sm font-medium mb-1 text-white">Servicio de Interés</label>
               <select id="service" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
                 <option value="">Seleccione un servicio</option>
                 <option value="Transporte en Bus">Reparación de ropa</option>
@@ -476,7 +495,7 @@
               </select>
             </div>
             <div>
-              <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
+              <label for="message" class="block text-sm font-medium mb-1 text-white">Mensaje</label>
               <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required></textarea>
             </div>
 
