@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Confecciones Erica | Reparación y Confección de Ropa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
       --primary:#5e548e;--secondary:#9f86c0;--accent:#e0b1cb;--light:#f8f9fa;--dark:#212529;--success:#28a745;
@@ -13,36 +14,11 @@
     body{line-height:1.6;color:var(--dark);background-color:var(--light)}
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 
-    /* Header */
-/* Header */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
-
-  box-shadow: 0 2px 10px rgba(0,0,0,.1);
-  backdrop-filter: blur(10px); /* Difuminado detrás */
-  -webkit-backdrop-filter: blur(10px); /* Para Safari */
-  z-index: 100;
-}
-    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-    .logo{font-size:24px;font-weight:700;color:var(--primary)}
-    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-    .nav-links a{position:relative;text-decoration:none;color:var(--dark);font-weight:500;transition:color .3s,transform .3s}
-    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--primary);transition:width .3s}
-    .nav-links a:hover{color:var(--primary);transform:scale(1.06)}
-    .nav-links a:hover::after{width:100%}
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;transition:background-color .3s}
-    .btn:hover{background:var(--secondary)}
-
     /* Hero full alto y centrado */
     .hero{
       width:100%;
       min-height:calc(100vh - var(--header-h));
       padding:24px 0 48px;
-      margin-top:var(--header-h);     /* compensa el header fijo */
       display:flex;align-items:center;justify-content:center;
       text-align:center;color:#fff;
       background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
@@ -71,7 +47,7 @@ background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
     .gallery-item{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
     .gallery-item img{width:100%;height:250px;object-fit:cover;transition:transform .5s}
     .gallery-item:hover img{transform:scale(1.05)}
-    .gallery-overlay{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;padding:20px;transform:translateY(100%);transition:transform .3s}
+    .gallery-overlay{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;padding:20px; z-index: 10}
     .gallery-item:hover .gallery-overlay{transform:translateY(0)}
 
     .testimonials{padding:80px 0}
@@ -103,29 +79,6 @@ background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
     .social-link:hover{background:var(--accent)}
     .copyright{color:rgba(255,255,255,.7);font-size:14px}
 
-    /* === Menú hamburguesa (móvil) === */
-    .menu-toggle{display:none;gap:6px;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;background:transparent;border:0;cursor:pointer;transition:transform .2s}
-    .menu-toggle span{display:block;width:24px;height:2px;background:#333;border-radius:2px;transition:all .3s}
-    .menu-toggle:hover{transform:scale(1.08)}
-    .menu-toggle:hover span{background:var(--primary)}
-
-    .mobile-menu{
-      position:fixed;left:0;right:0;top:var(--header-h);
-      background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.08);
-      overflow:hidden;max-height:0;transition:max-height .35s ease;z-index:99
-    }
-    .mobile-menu.open{max-height:420px}
-    .mobile-menu a{display:block;padding:14px 22px;color:var(--dark);text-decoration:none;border-bottom:1px solid #eee;transition:transform .2s,color .2s}
-    .mobile-menu a:hover{color:var(--primary);transform:translateX(4px)}
-    .mobile-menu .btn{margin:14px 22px;display:block;text-align:center}
-
-    /* Responsive */
-    @media (max-width:768px){
-      .nav-links, nav .btn{display:none}
-      .menu-toggle{display:flex}
-      .hero h1{font-size:36px}
-      .hero p{font-size:18px}
-    }
 
     .custom-select {
     width: 100%;
@@ -158,49 +111,99 @@ background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
   </style>
   
 </head>
-<body>
+<body class="font-sans">
+  <!-- Header/Navbar -->
+  <nav class="fixed top-4  inset-x-0 max-w-6xl mx-auto bg-violet-500/60 text-white shadow-xl backdrop-blur-md z-50 ring-1 ring-black/10
+            rounded-2xl">
+    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="img/fondoDifuminado.png" alt="Logo Negociaciones Paola" class="h-10 w-auto object-contain"/>
+        <h1 class="text-lg md:text-xl font-bold">Confecciones Erica</h1>
+      </div>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">Confecciones Erica</div>
+      <!-- Links (desktop) -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#inicio" class="hover:text-blue-200">Inicio</a>
+        <a href="#servicios" class="hover:text-blue-200">Servicios</a>
+        <a href="#galeria" class="hover:text-blue-200">Galeria</a>
+        <a href="#testimonios" class="hover:text-blue-200">Testimonios</a>
+        <a href="#contacto" class="hover:text-blue-200">Contacto</a>
+      </div>
 
-        <!-- Menú escritorio -->
-        <ul class="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#galeria">Galería</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-
-        <a href="#contacto" class="btn">Cotizar</a>
-
-        <!-- Botón hamburguesa (móvil) -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
+  <!-- Botón (móvil) -->
+      <button id="menu-toggle"
+              class="md:hidden p-2 rounded hover:bg-white/10"
+              aria-label="Abrir menú"
+              aria-controls="mobile-menu"
+              aria-expanded="false">
+        <!-- Icono hamburguesa -->
+        <svg id="icon-open" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- Icono X (cerrar) -->
+        <svg id="icon-close" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6l-12 12"/>
+        </svg>
+      </button>
     </div>
+  </div>
 
-    <!-- Panel móvil -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#galeria">Galería</a>
-      <a href="#testimonios">Testimonios</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#contacto" class="btn">Cotizar</a>
-    </div>
-  </header>
+  <!-- Panel móvil con transición -->
+  <div id="mobile-menu"
+       class="md:hidden overflow-hidden max-h-0 transition-all duration-1000 ease-in-out border-t border-white/10">
+    <ul class="flex flex-col py-2 px-6 gap-2 bg-violet-200/60 text-gray-800">
+      <li><a href="#inicio" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Inicio</a></li>
+      <li><a href="#servicios" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Servicios</a></li>
+      <li><a href="#galeria" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Galeria</a></li>
+      <li><a href="#testimonios" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Testimonios</a></li>
+      <li><a href="#contacto" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggleBtn   = document.getElementById("menu-toggle");
+  const mobileMenu  = document.getElementById("mobile-menu");
+  const iconOpen    = document.getElementById("icon-open");
+  const iconClose   = document.getElementById("icon-close");
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+
+  function toggleMenu(forceState) {
+    const opening = forceState !== undefined ? forceState : mobileMenu.classList.contains('max-h-0');
+
+    // Altura y opacidad
+    mobileMenu.classList.toggle('max-h-0', !opening);
+    mobileMenu.classList.toggle('opacity-0', !opening);
+    mobileMenu.classList.toggle('max-h-[60vh]', opening); // altura animable suficiente
+    mobileMenu.classList.toggle('opacity-100', opening);
+
+    // Íconos y aria-expanded
+    iconOpen.classList.toggle('hidden', opening);
+    iconClose.classList.toggle('hidden', !opening);
+    toggleBtn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  }
+
+  // Estado inicial (cerrado)
+  mobileMenu.classList.add('max-h-0','opacity-0');
+  mobileMenu.classList.remove('hidden'); // importante: no usar hidden para poder animar
+
+  toggleBtn.addEventListener("click", () => toggleMenu());
+
+  // Cerrar al hacer clic en un enlace (UX ✅)
+  mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+  // Respeta usuarios con "reduced motion"
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    mobileMenu.classList.remove('transition-all','duration-500','ease-in-out');
+  }
+</script>
 
   <!-- Hero -->
   <section class="hero" id="inicio">
     <div class="container">
       <h1>Taller de Reparación y Confección de Ropa</h1>
       <p>Transformamos tus prendas con técnicas profesionales de costura y diseño. Desde arreglos sencillos hasta creaciones personalizadas.</p>
-      <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" class="btn">Escribenos al WhastApp</a>
+      <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" class="inline-block bg-[#5e548e] text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-[#4a3f75] transition">Escribenos al WhastApp</a>
     </div>
   </section>
 
@@ -505,40 +508,39 @@ background: rgba(245, 235, 255, 0.9); /* Morado pastel super suave */
     </div>
   </footer>
 
-  <!-- Scrip para enviar correo a Mama -->
+   <!-- Scrip para enviar correo a Mama -->
    <script>
-const form = document.getElementById('contactForm');
-const msg  = document.getElementById('formMsg');
+    const form = document.getElementById('contactForm');
+    const msg  = document.getElementById('formMsg');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          msg.textContent = '¡Gracias! Tu mensaje fue enviado con éxito.';
+          msg.style.color = '#2e7d32';
+        } else {
+          const data = await res.json().catch(()=> ({}));
+          msg.textContent = data?.errors?.[0]?.message || 'Ocurrió un error al enviar. Intenta nuevamente.';
+          msg.style.color = '#c62828';
+        }
+      } catch (err) {
+        msg.textContent = 'No hay conexión. Intenta nuevamente.';
+        msg.style.color = '#c62828';
+      }
     });
 
-    if (res.ok) {
-      form.reset();
-      msg.textContent = '¡Gracias! Tu mensaje fue enviado con éxito.';
-      msg.style.color = '#2e7d32';
-    } else {
-      const data = await res.json().catch(()=> ({}));
-      msg.textContent = data?.errors?.[0]?.message || 'Ocurrió un error al enviar. Intenta nuevamente.';
-      msg.style.color = '#c62828';
-    }
-  } catch (err) {
-    msg.textContent = 'No hay conexión. Intenta nuevamente.';
-    msg.style.color = '#c62828';
-  }
-});
-
-    const fd = new FormData(form);
-    fd.set('_replyto', form.elements.email.value); // usa el correo que escribe el usuario
-</script>
-
+        const fd = new FormData(form);
+        fd.set('_replyto', form.elements.email.value); // usa el correo que escribe el usuario
+    </script>
 
   <script>
     // Smooth scroll
