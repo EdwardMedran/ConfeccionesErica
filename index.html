@@ -79,6 +79,15 @@
     .social-link:hover{background:var(--accent)}
     .copyright{color:rgba(255,255,255,.7);font-size:14px}
 
+    /* móvil: todo en columna y centrado */
+@media (max-width: 640px) {
+  .footer-links {
+    flex-direction: column;           /* apila los enlaces */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+}
 
     .custom-select {
     width: 100%;
@@ -398,8 +407,8 @@
       </div>
 
       <div class="contact-container">
-        <div class="contact-info">
-          <h3>Información de Contacto</h3>
+        <div class="relative mx-auto max-w-5xl px-8">
+          <h3 class="text-xl font-bold mb-4">Información de Contacto</h3>
 
           <div class="contact-details">
             <div class="contact-item">
@@ -435,35 +444,49 @@
             </div>
           </div>
 
-          <h3>Horario de Atención</h3>
+          <h3 class="text-xl font-bold mb-4">Horario de Atención</h3>
           <p>Lunes a Sabado: 8:00am - 8:00pm</p>
           <p>Domingos: Con previa coordinación</p>
         </div>
 
-        <div class="contact-form">
-          <h3>Envíanos un Mensaje</h3>
-          <form id="contactForm" action="https://formspree.io/f/xyzpqvya" method="POST">
-  <input type="text" name="nombre" placeholder="Nombre completo" required>
-  <input type="email" name="email" placeholder="Correo electrónico" required>
-  <input type="tel" name="telefono" placeholder="Teléfono">
-  <select name="servicio" required>
-    <option value="">Selecciona un servicio</option>
-    <option>Reparación de ropa</option>
-    <option>Confección personalizada</option>
-    <option>Ajustes y modificaciones</option>
-    <option>Restauración de prendas</option>
-    <option>Asesoría personal</option>
-    <option>Otro</option>
-  </select>
-  <textarea name="mensaje" placeholder="Describe tu pedido o necesidad" required></textarea>
+        <div>
+          <form class="space-y-6" id="contactForm" action="" method="POST">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-1">Nombre Completo</label>
+              <input id="name" type="text" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
+              <input id="email" type="email" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium mb-1">Teléfono</label>
+              <input id="phone" type="tel" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium mb-1">Servicio de Interés</label>
+              <select id="service" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
+                <option value="">Seleccione un servicio</option>
+                <option value="Transporte en Bus">Reparación de ropa</option>
+                <option value="vehiculo pequeno">Confección personalizada</option>
+                <option value="Transporte para eventos">Ajustes y Modificaciones</option>
+                <option value="Otro servico">Restauración de Prendas</option>
+                <option value="Otro servico">Asesoría personal</option>
+                <option value="Otro servico">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required></textarea>
+            </div>
 
-  <!-- Opcional: asunto y destino visibles en el correo -->
-   <input type="hidden" name="_subject" value="Nuevo mensaje desde Confecciones Erica. Un nuevo cliente!!!">
-    <input type="hidden" name="_replyto">
+            <!-- Opcional: asunto y destino visibles en el correo -->
+                    <input type="hidden" name="_subject" value="Mensaje de un nuevo Cliente desde tu Pagina Web!!!">
+                    <input type="hidden" name="_replyto">
 
-  <button type="submit" class="btn">Enviar Mensaje</button>
-</form>
-<p id="formMsg" style="margin-top:10px;"></p>
+            <button type="submit" class="bg-violet-400 hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full">Enviar Mensaje</button>
+             <p id="formMsg" style="margin-top:10px; text-align: center;"></p>
+          </form>
         </div>
       </div>
     </div>
@@ -472,7 +495,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="logo" style="color:#fff;margin-bottom:20px">Confecciones Erica</div>
+      <div class="logo" style="color:#fff;margin-bottom:20px"><h3 class="text-xl font-bold mt-8 mb-4">Confecciones Erica</h3></div>
       <ul class="footer-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
