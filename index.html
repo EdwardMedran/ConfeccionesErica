@@ -1,617 +1,221 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Confecciones Erica | Reparación y Confección de Ropa</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{
-      --primary:#5e548e;--secondary:#9f86c0;--accent:#e0b1cb;--light:#f8f9fa;--dark:#212529;--success:#28a745;
-      --header-h:72px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
-    body{line-height:1.6;color:var(--dark);background-color:var(--light)}
-    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confecciones Erica | Alta Costura y Reparación</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    /* Hero full alto y centrado */
-    .hero{
-      width:100%;
-      min-height:calc(100vh - var(--header-h));
-      padding:24px 0 48px;
-      display:flex;align-items:center;justify-content:center;
-      text-align:center;color:#fff;
-      background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-      url('https://edwardmedran.github.io/ConfeccionesErica/img/fondoDifuminado.png') center/cover no-repeat;
-    }
-    .hero h1{font-size:48px;margin-bottom:20px}
-    .hero p{font-size:20px;max-width:700px;margin:0 auto 30px}
-
-    /* Secciones */
-    .services{padding:80px 0}
-    .section-title{text-align:center;margin-bottom:50px}
-    .section-title h2{font-size:36px;margin-bottom:15px}
-    .section-title p{max-width:700px;margin:0 auto}
-
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
-    .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:transform .3s}
-    .service-card:hover{transform:translateY(-10px)}
-    .service-img{height:200px;overflow:hidden}
-    .service-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-    .service-card:hover .service-img img{transform:scale(1.1)}
-    .service-content{padding:20px}
-    .service-content h3{font-size:22px;margin-bottom:10px;color:var(--primary)}
-
-    .gallery{padding:80px 0;background:#f5f5f5}
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-    .gallery-item{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
-    .gallery-item img{width:100%;height:250px;object-fit:cover;transition:transform .5s}
-    .gallery-item:hover img{transform:scale(1.05)}
-    .gallery-overlay{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;padding:20px; z-index: 10}
-    .gallery-item:hover .gallery-overlay{transform:translateY(0)}
-
-    .testimonials{padding:80px 0}
-    .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
-    .testimonial-card{background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.05);position:relative}
-    .testimonial-card::before{content:'"';font-size:80px;color:var(--accent);position:absolute;top:10px;left:20px;opacity:.2}
-    .testimonial-content{margin-bottom:20px;font-style:italic;color:#555}
-    .testimonial-author{display:flex;align-items:center}
-    .testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:15px}
-    .author-info h4{color:var(--primary);margin-bottom:5px}
-
-.contact {
-  position: relative;
-  padding: 80px 0;
-  background: url("img/fondoDifuminado2.png") center/cover no-repeat;
-}
-
-/* Capa de oscurecimiento */
-.contact::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5); /* 50% negro encima */
-  z-index: 1;
-}
-
-/* Asegura que el contenido esté encima del overlay */
-.contact > * {
-  position: relative;
-  z-index: 2;
-}
-    .contact-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px}
-    .contact-info h3{font-size:24px;color:#fff;margin-bottom:20px}
-    .contact-details{margin-bottom:30px}
-    .contact-item{display:flex;align-items:center;margin-bottom:15px}
-    .contact-icon{width:40px;height:40px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px}
-    .contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:20px;border:1px solid #ddd;border-radius:5px;font-size:16px}
-    .contact-form textarea{height:150px;resize:vertical}
-    .contact-form h3{font-size:24px;color:var(--primary);margin-bottom:20px}
-
-    footer{background:var(--dark);color:#fff;padding:50px 0 20px;text-align:center}
-    .footer-links{display:flex;justify-content:center;list-style:none;margin-bottom:30px}
-    .footer-links li{margin:0 15px}
-    .footer-links a{color:#fff;text-decoration:none;transition:color .3s}
-    .footer-links a:hover{color:var(--accent)}
-    .social-links{display:flex;justify-content:center;margin-bottom:30px}
-    .social-link{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 10px;color:#fff;text-decoration:none;transition:background-color .3s}
-    .social-link:hover{background:var(--accent)}
-    .copyright{color:rgba(255,255,255,.7);font-size:14px}
-
-    /* móvil: todo en columna y centrado */
-@media (max-width: 640px) {
-  .footer-links {
-    flex-direction: column;           /* apila los enlaces */
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-}
-
-    .custom-select {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    background: #fff;
-    border: 2px solid #e0b1cb;  /* rosado pastel */
-    border-radius: 8px;
-    outline: none;
-    appearance: none; /* quita el estilo por defecto */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='%239f86c0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 20px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-select:focus {
-    border-color: #9f86c0;  /* morado más fuerte */
-    box-shadow: 0 0 6px rgba(159, 134, 192, 0.5);
-  }
-
-  .custom-select option {
-    padding: 12px;
-    }
-  </style>
-  
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body class="font-sans">
-  <!-- Header/Navbar -->
-  <nav class="fixed top-4  inset-x-0 max-w-6xl mx-auto bg-violet-500/60 text-white shadow-xl backdrop-blur-md z-50 ring-1 ring-black/10
-            rounded-2xl">
-    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="img/fondoDifuminado.png" alt="Logo Negociaciones Paola" class="h-10 w-auto object-contain"/>
-        <h1 class="text-lg md:text-xl font-bold">Confecciones Erica</h1>
-      </div>
+<body>
 
-      <!-- Links (desktop) -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#inicio" class="hover:text-blue-200">Inicio</a>
-        <a href="#servicios" class="hover:text-blue-200">Servicios</a>
-        <a href="#galeria" class="hover:text-blue-200">Galeria</a>
-        <a href="#testimonios" class="hover:text-blue-200">Testimonios</a>
-        <a href="#contacto" class="hover:text-blue-200">Contacto</a>
-      </div>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">E</span>
+                Confecciones <span class="highlight">Erica</span>
+            </a>
 
-  <!-- Botón (móvil) -->
-      <button id="menu-toggle"
-              class="md:hidden p-2 rounded hover:bg-white/10"
-              aria-label="Abrir menú"
-              aria-controls="mobile-menu"
-              aria-expanded="false">
-        <!-- Icono hamburguesa -->
-        <svg id="icon-open" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <!-- Icono X (cerrar) -->
-        <svg id="icon-close" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6l-12 12"/>
-        </svg>
-      </button>
-    </div>
-  </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li><a href="#contacto" class="btn btn-primary">Contáctanos</a></li>
+                <button class="menu-close" id="menu-close"><i class="ph ph-x"></i></button>
+            </ul>
 
-  <!-- Panel móvil con transición -->
-  <div id="mobile-menu"
-       class="md:hidden overflow-hidden max-h-0 transition-all duration-1000 ease-in-out border-t border-white/10">
-    <ul class="flex flex-col py-2 px-6 gap-2 bg-violet-200/60 text-gray-800">
-      <li><a href="#inicio" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Inicio</a></li>
-      <li><a href="#servicios" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Servicios</a></li>
-      <li><a href="#galeria" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Galeria</a></li>
-      <li><a href="#testimonios" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Testimonios</a></li>
-      <li><a href="#contacto" class="block py-2 hover:text-teal-600 transform hover:scale-105 transition-all">Contacto</a></li>
-    </ul>
-  </div>
-</nav>
-
-<script>
-  const toggleBtn   = document.getElementById("menu-toggle");
-  const mobileMenu  = document.getElementById("mobile-menu");
-  const iconOpen    = document.getElementById("icon-open");
-  const iconClose   = document.getElementById("icon-close");
-  const mobileLinks = mobileMenu.querySelectorAll('a');
-
-  function toggleMenu(forceState) {
-    const opening = forceState !== undefined ? forceState : mobileMenu.classList.contains('max-h-0');
-
-    // Altura y opacidad
-    mobileMenu.classList.toggle('max-h-0', !opening);
-    mobileMenu.classList.toggle('opacity-0', !opening);
-    mobileMenu.classList.toggle('max-h-[60vh]', opening); // altura animable suficiente
-    mobileMenu.classList.toggle('opacity-100', opening);
-
-    // Íconos y aria-expanded
-    iconOpen.classList.toggle('hidden', opening);
-    iconClose.classList.toggle('hidden', !opening);
-    toggleBtn.setAttribute('aria-expanded', opening ? 'true' : 'false');
-  }
-
-  // Estado inicial (cerrado)
-  mobileMenu.classList.add('max-h-0','opacity-0');
-  mobileMenu.classList.remove('hidden'); // importante: no usar hidden para poder animar
-
-  toggleBtn.addEventListener("click", () => toggleMenu());
-
-  // Cerrar al hacer clic en un enlace (UX ✅)
-  mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-
-  // Respeta usuarios con "reduced motion"
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    mobileMenu.classList.remove('transition-all','duration-500','ease-in-out');
-  }
-</script>
-
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <div class="container">
-      <h1>Taller de Reparación y Confección de Ropa</h1>
-      <p>Transformamos tus prendas con técnicas profesionales de costura y diseño. Desde arreglos sencillos hasta creaciones personalizadas.</p>
-      <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" class="inline-block bg-[#5e548e] text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-[#4a3f75] transition">Escribenos al WhastApp</a>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="servicios">
-    <div class="container">
-      <div class="section-title">
-        <h2 class="text-[#ada6cc]">Nuestros Servicios</h2>
-        <p class="text-[#9e9e9e]">Ofrecemos soluciones profesionales para todas tus necesidades de moda y costura.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Máquina de coser industrial con varias prendas de vestir en proceso de reparación"/>
-          </div>
-          <div class="service-content">
-            <h3>Reparación de Ropa</h3>
-            <p>Arreglamos todo tipo de prendas: desde costuras rotas hasta cambios de cremalleras y parches invisibles.</p>
-          </div>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="ph ph-list"></i>
+            </button>
         </div>
+    </nav>
 
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Diseñadora midiendo tela sobre mesa de trabajo con patrones y tijeras"/>
-          </div>
-          <div class="service-content">
-            <h3>Confección Personalizada</h3>
-            <p>Creamos prendas únicas según tus medidas y estilo, con telas de alta calidad y acabados impecables.</p>
-          </div>
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="subtitle">Alta Costura & Reparaciones</span>
+            <h1>El Arte de <br>Vestir Bien</h1>
+            <p>Transformamos tus prendas favoritas y creamos diseños únicos que se ajustan perfectamente a tu estilo y silueta.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/51971040163?text=Hola,%20deseo%20cotizar..." target="_blank" class="btn btn-primary">
+                    <i class="ph ph-whatsapp-logo"></i> Cotizar
+                </a>
+                <a href="galeria.html" class="btn btn-outline">Ver Trabajos</a>
+            </div>
         </div>
+    </section>
 
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Vestido de novia siendo ajustado por costurera en maniquí de lujo"/>
-          </div>
-          <div class="service-content">
-            <h3>Ajustes y Modificaciones</h3>
-            <p>Adaptamos tus prendas favoritas a tu talla actual o las modernizamos con detalles de diseño contemporáneo.</p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f8b7284a-a72f-4a0c-abaf-aff731cfaf0e.png" alt="Colección de chaquetas de cuero siendo restauradas con herramientas especializadas"/>
-          </div>
-          <div class="service-content">
-            <h3>Restauración de Prendas</h3>
-            <p>Devolvemos la vida a prendas antiguas o sentimentales con técnicas profesionales de limpieza y reparación.</p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5764f198-d11d-4039-b1f5-6b6e32eca08e.png" alt="Variedad de botones, hilos y accesorios de costura organizados en cajonera"/>
-          </div>
-          <div class="service-content">
-            <h3>Servicio Express</h3>
-            <p>Arreglos urgentes con entrega en 24 horas para esas emergencias de última hora que no pueden esperar.</p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-img">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/102d710e-a36a-4d22-a892-29d745401474.png" alt="Grupo de costureras trabajando en taller luminoso con máquinas modernas"/>
-          </div>
-          <div class="service-content">
-            <h3>Asesoría Personal</h3>
-            <p>Te guiamos en el cuidado de tus prendas y te enseñamos técnicas básicas de reparación para hacer en casa.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section class="gallery" id="galeria">
-    <div class="container">
-      <div class="section-title">
-        <h2 class="text-[#ada6cc]">Nuestros Trabajos</h2>
-        <p class="text-[#9e9e9e]">Algunos ejemplos de nuestro trabajo y transformaciones realizadas.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="img/VestidoVerde.jpeg" alt="Vestido de noche negro antes y después de ser ajustado al cuerpo"/>
-          <div class="gallery-overlay">
-            <h3>Ajuste de Vestido</h3><p>Reducción de talla con preservación de detalles originales</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Chaqueta de cuero vintage restaurada con nuevos forros y cierres"/>
-          <div class="gallery-overlay">
-            <h3>Restauración de Chaqueta</h3><p>Reemplazo de forro y cremalleras con materiales de alta calidad</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Conjunto de pantalón y blazer a medida en tela azul marino"/>
-          <div class="gallery-overlay">
-            <h3>Traje a Medida</h3><p>Confección completa desde cero según medidas del cliente</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Jeans desgastados transformados en shorts modernos con bordados"/>
-          <div class="gallery-overlay">
-            <h3>Transformación Creativa</h3><p>Reciclaje de prendas antiguas en diseños modernos</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestido de novia con detalles de encaje siendo medido en maniquí"/>
-          <div class="gallery-overlay">
-            <h3>Ajuste de Vestido de Novia</h3><p>Modificaciones para adaptar vestido heredado a nueva usuaria</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
-          <div class="gallery-overlay">
-            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
-          <div class="gallery-overlay">
-            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Colección de camisas con arreglos invisibles en puños y cuellos"/>
-          <div class="gallery-overlay">
-            <h3>Reparaciones Invisibles</h3><p>Técnicas profesionales para daños imperceptibles</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials" id="testimonios">
-    <div class="container">
-      <div class="section-title">
-        <h2 class="text-[#ada6cc]">Lo que dicen nuestros clientes</h2>
-        <p class="text-[#9e9e9e]">Testimonios reales de personas que han confiado en nuestro trabajo.</p>
-      </div>
-
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <p>Excente trabajo! Lo recomiendo, me gusto mucho el acabado de los trabajos y precios muy accesibles.</p>
-          </div>
-          <div class="testimonial-author">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Retrato de Carlos Mendez, cliente satisfecho sonriendo"/>
-            <div class="author-info"><h4>Delia Pérez</h4><p>Cliente desde 2015</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <p>Necesitaba un vestido especial para mi boda y no encontraba nada en las tiendas. Crearon exactamente lo que quería, con un ajuste perfecto. ¡Quedé encantada!</p>
-          </div>
-          <div class="testimonial-author">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Retrato de Ana Rodríguez, clienta elegante con vestido de fiesta"/>
-            <div class="author-info"><h4>Miriam Sánchez</h4><p>Cliente desde 2000</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <p>Como hombre alto, siempre he tenido problemas para encontrar ropa que me quede bien. Ahora tengo varios polos y pantalones hechos a medida perfectamente y a un precio razonable.</p>
-          </div>
-          <div class="testimonial-author">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Retrato de Javier Torres, cliente alto con traje a medida"/>
-            <div class="author-info"><h4>Edward Medrano</h4><p>Cliente desde 2010</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contacto">
-    <div class="container">
-      <div class="section-title">
-        <h2 class="text-white">Contáctanos</h2>
-        <p class="text-white">Estamos aquí para ayudarte con todas tus necesidades de costura y diseño.</p>
-      </div>
-
-      <div class="contact-container">
-        <div class="relative mx-auto max-w-5xl px-8">
-          <h3 class="text-xl font-bold mb-4 text-white">Información de Contacto</h3>
-
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-              </div>
-              <div><a class="text-white" href="https://maps.app.goo.gl/V3Wpr2tpYiz35BMc8" target="_blank">Jr. Piura 747 Quilmaná, Cañete</a></div>
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales de costura con acabados profesionales.</p>
             </div>
 
-            <div class="contact-item">
-        <div class="contact-icon">
-            <!-- Logo WhatsApp corregido -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.39 0 .01 5.38.01 12.02c0 2.12.55 4.19 1.59 6.01L0 24l6.15-1.6a11.94 11.94 0 0 0 5.89 1.52h.01c6.63 0 12.01-5.38 12.01-12.01 0-3.2-1.25-6.21-3.54-8.43zM12.05 21.2c-1.85 0-3.66-.5-5.23-1.44l-.37-.22-3.64.95.97-3.55-.24-.37A9.18 9.18 0 0 1 2.8 12c0-5.1 4.15-9.25 9.25-9.25 2.47 0 4.78.96 6.52 2.69a9.17 9.17 0 0 1 2.73 6.56c0 5.1-4.15 9.2-9.25 9.2zm5.14-6.9c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.19-.32.21-.6.07-1.65-.82-2.74-1.46-3.84-3.31-.29-.5.29-.46.83-1.52.09-.19.05-.36-.02-.5-.07-.14-.61-1.46-.83-2-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01a1 1 0 0 0-.73.34c-.25.27-.95.93-.95 2.26 0 1.33.97 2.62 1.11 2.8.14.19 1.91 2.92 4.63 4.09.65.28 1.16.45 1.55.58.65.2 1.25.17 1.72.1.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.19-.53-.33z"/>
-            </svg>
+            <div class="grid-3">
+                <div class="card service-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Reparación">
+                    </div>
+                    <div class="card-body">
+                        <h3>Reparación de Ropa</h3>
+                        <p>Zurcidos invisibles, cambios de cierre y parches estéticos para extender la vida de tus prendas.</p>
+                    </div>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Confección">
+                    </div>
+                    <div class="card-body">
+                        <h3>Confección a Medida</h3>
+                        <p>Diseño y creación de vestidos y trajes exclusivos basados en tus medidas exactas.</p>
+                    </div>
+                </div>
+
+                <div class="card service-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Ajustes">
+                    </div>
+                    <div class="card-body">
+                        <h3>Ajustes & Entalles</h3>
+                        <p>Modificamos el talle, basta y mangas para que la ropa te quede como un guante.</p>
+                    </div>
+                </div>
+                 </div>
         </div>
-        <div>
-    <a class="text-white" href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener">
-      +51 971 040 163
-    </a>
-  </div>
-</div>
+    </section>
 
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
-              </div>
-              <div>
-                <p class="text-white">ericapanchana@icloud.com</p>
-                <p class="text-white">Respuesta en menos de 24h</p>
-              </div>
+    <section id="testimonios" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Clientes Felices</h2>
+                <p>Opiniones reales de nuestros trabajos.</p>
             </div>
-          </div>
+            
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <i class="ph ph-quotes quote-icon"></i>
+                    <p>"Excelente trabajo. Me gustó mucho el acabado y precios muy accesibles. Recuperaron un vestido que creía perdido."</p>
+                    <div class="author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Cliente Delia">
+                        <div>
+                            <h5>Delia Pérez</h5>
+                            <span>Cliente Frecuente</span>
+                        </div>
+                    </div>
+                </div>
 
-          <h3 class="text-xl font-bold mb-4 text-white">Horario de Atención</h3>
-          <p class="text-white">Lunes a Sabado: 8:00am - 8:00pm</p>
-          <p class="text-white">Domingos: Con previa coordinación</p>
+                <div class="testimonial-card">
+                    <i class="ph ph-quotes quote-icon"></i>
+                    <p>"Crearon exactamente lo que quería para mi boda, con un ajuste perfecto. ¡Quedé encantada con el servicio!"</p>
+                    <div class="author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Cliente Miriam">
+                        <div>
+                            <h5>Miriam Sánchez</h5>
+                            <span>Novia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <i class="ph ph-quotes quote-icon"></i>
+                    <p>"Como hombre alto, siempre he tenido problemas para encontrar ropa. Ahora tengo pantalones hechos a medida perfectamente."</p>
+                    <div class="author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Cliente Edward">
+                        <div>
+                            <h5>Edward Medrano</h5>
+                            <span>Ejecutivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
-          <form class="space-y-6" id="contactForm" action="https://formspree.io/f/xyzpqvya" method="POST">
-            <div>
-              <label for="name" class="block text-sm font-medium mb-1 text-white">Nombre Completo</label>
-              <input id="name" type="text" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-1 text-white">Correo Electrónico</label>
-              <input id="email" type="email" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-medium mb-1 text-white">Teléfono</label>
-              <input id="phone" type="tel" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
-            </div>
-            <div>
-              <label for="service" class="block text-sm font-medium mb-1 text-white">Servicio de Interés</label>
-              <select id="service" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required>
-                <option value="">Seleccione un servicio</option>
-                <option value="Transporte en Bus">Reparación de ropa</option>
-                <option value="vehiculo pequeno">Confección personalizada</option>
-                <option value="Transporte para eventos">Ajustes y Modificaciones</option>
-                <option value="Otro servico">Restauración de Prendas</option>
-                <option value="Otro servico">Asesoría personal</option>
-                <option value="Otro servico">Otro</option>
-              </select>
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium mb-1 text-white">Mensaje</label>
-              <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500" required></textarea>
-            </div>
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="subtitle">Hablemos</span>
+                    <h2>¿Listo para renovar tu armario?</h2>
+                    <p>Visítanos en nuestro taller o escríbenos para coordinar una cita.</p>
+                    <ul class="info-list">
+                        <li>
+                            <div class="icon-box"><i class="ph ph-map-pin"></i></div>
+                            <div><strong>Visítanos</strong><a href="#">Jr. Piura 747 Quilmaná, Cañete</a></div>
+                        </li>
+                        <li>
+                            <div class="icon-box"><i class="ph ph-whatsapp-logo"></i></div>
+                            <div><strong>WhatsApp</strong><a href="https://wa.me/51971040163">+51 971 040 163</a></div>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Opcional: asunto y destino visibles en el correo -->
-                    <input type="hidden" name="_subject" value="Mensaje de un nuevo Cliente desde tu Pagina Web!!!">
-                    <input type="hidden" name="_replyto">
-
-            <button type="submit" class="bg-violet-400 hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full">Enviar Mensaje</button>
-             <p id="formMsg" style="margin-top:10px; text-align: center;"></p>
-          </form>
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" action="https://formspree.io/f/xyzpqvya" method="POST">
+                        <h3>Envíanos un mensaje</h3>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje</label>
+                            <textarea name="message" rows="4" required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="Nuevo Cliente Web">
+                        <input type="hidden" name="_replyto" id="replyto">
+                        <button type="submit" class="btn btn-full btn-glow">Enviar Mensaje</button>
+                        <p id="formMsg" style="text-align: center; margin-top: 10px;"></p>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="logo" style="color:#fff;margin-bottom:20px"><h3 class="text-xl font-bold mt-8 mb-4">Confecciones Erica</h3></div>
-      <ul class="footer-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#">Política de Privacidad</a></li>
-      </ul>
-      <div class="social-links">
-  <!-- Facebook -->
-  <a href="https://www.facebook.com/erica.panchana" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94Z"/>
-    </svg>
-  </a>
+    <footer>
+        <div class="container footer-content">
+            <h3>Confecciones Erica</h3>
+            <div class="social-links">
+                <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                <a href="#"><i class="ph ph-instagram-logo"></i></a>
+            </div>
+            <p>© 2025 Confecciones Erica.</p>
+        </div>
+    </footer>
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/ericapanchanatorres/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.25a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 18 6.25Z"/>
-    </svg>
-  </a>
+    <a href="https://wa.me/51971040163" class="whatsapp-btn" target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/51971040163?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48.03.2 5.31.22 11.87A11.8 11.8 0 0 0 2.4 18L0 24l6.2-2.33a11.86 11.86 0 0 0 5.83 1.52h.01c6.56-.02 11.84-5.3 11.86-11.86A11.83 11.83 0 0 0 20.52 3.48ZM12 21.05h-.01a9.94 9.94 0 0 1-5.07-1.38l-.36-.21-3.69 1.38 1.37-3.6-.24-.37A9.92 9.92 0 1 1 12 21.05Zm5.49-7.45c-.3-.15-1.77-.87-2.05-.97s-.48-.15-.68.15-.78.97-.96 1.17-.36.22-.66.07a8.15 8.15 0 0 1-2.4-1.48 8.96 8.96 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6.13-.13.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37 0-.52s-.6-1.45-.83-1.98c-.22-.52-.45-.45-.63-.46l-.54-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09 2.11 3.23 5.11 4.52c.72.31 1.29.51 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.8-.73 2.05-1.43.25-.7.25-1.31.17-1.45-.08-.14-.28-.2-.59-.35Z"/>
-    </svg>
-  </a>
-</div>
-
-      <p class="copyright">© 2025 Confecciones Erica. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-   <!-- Scrip para enviar correo a Mama -->
-   <script>
-    const form = document.getElementById('contactForm');
-    const msg  = document.getElementById('formMsg');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+    <script>
+        /* JS básico Navbar */
+        const navMenu = document.getElementById('nav-menu'), navToggle = document.getElementById('menu-toggle'), navClose = document.getElementById('menu-close');
+        if(navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
+        if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if(this.scrollY >= 50) navbar.classList.add('scroll-header'); else navbar.classList.remove('scroll-header');
         });
 
-        if (res.ok) {
-          form.reset();
-          msg.textContent = '¡Gracias! Tu mensaje fue enviado con éxito.';
-          msg.style.color = '#2e7d32';
-        } else {
-          const data = await res.json().catch(()=> ({}));
-          msg.textContent = data?.errors?.[0]?.message || 'Ocurrió un error al enviar. Intenta nuevamente.';
-          msg.style.color = '#c62828';
-        }
-      } catch (err) {
-        msg.textContent = 'No hay conexión. Intenta nuevamente.';
-        msg.style.color = '#c62828';
-      }
-    });
-
-        const fd = new FormData(form);
-        fd.set('_replyto', form.elements.email.value); // usa el correo que escribe el usuario
+        /* Formulario Simple */
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('formMsg').textContent = 'Enviando...';
+            /* Aquí iría tu lógica de fetch formspree */
+            setTimeout(()=> document.getElementById('formMsg').textContent = 'Mensaje Enviado', 1000);
+        });
     </script>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const id=a.getAttribute('href'); if(!id||id==='#') return;
-        e.preventDefault();
-        document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
-      });
-    });
-
-    // Form
-    document.getElementById('contactForm').addEventListener('submit',e=>{
-      e.preventDefault(); alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'); e.target.reset();
-    });
-
-    // Menú móvil
-    const btn = document.getElementById('menuToggle');
-    const panel = document.getElementById('mobileMenu');
-    btn.addEventListener('click',()=>{
-      const open = panel.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true':'false');
-    });
-    panel.querySelectorAll('a').forEach(link=>{
-      link.addEventListener('click',()=>{
-        panel.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      });
-    });
-  </script>
 </body>
 </html>

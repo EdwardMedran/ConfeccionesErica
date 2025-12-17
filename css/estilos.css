@@ -1,0 +1,781 @@
+/* --- 1. Variables y Reset Global --- */
+:root {
+    /* Paleta de Colores Boutique */
+    --primary: #5e548e;       /* Morado elegante */
+    --primary-dark: #3f3661;  /* Morado oscuro */
+    --accent: #d4a373;        /* Dorado suave */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --off-white: #f9f9f9;
+    --bg-dark: #23202a;       /* Fondo oscuro para contacto */
+
+    /* Fuentes */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Lato', sans-serif;
+    
+    /* Medidas */
+    --header-height: 70px;
+    --container-width: 1100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* --- 2. Clases Utilitarias --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section { padding: 5rem 0; }
+.bg-light { background-color: var(--off-white); }
+
+.subtitle {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.section-header h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    margin: 10px auto 0;
+}
+
+/* Botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(94, 84, 142, 0.4);
+}
+
+.btn-outline {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+}
+
+/* --- 3. Header y Navegación --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 100;
+    transition: 0.3s;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+.scroll-header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.highlight { color: var(--primary); }
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-link:hover { color: var(--primary); }
+
+.menu-toggle, .menu-close {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* --- 4. Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    /* Imagen de fondo */
+    background: url('https://edwardmedran.github.io/ConfeccionesErica/img/fondoDifuminado.png') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(30, 20, 50, 0.7), rgba(30, 20, 50, 0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* --- 5. Servicios (Grid) --- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.service-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+    border-top: 3px solid var(--primary);
+}
+
+.card-body h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* --- 6. Galería (CSS Grid) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    auto-rows: 250px; /* Altura fija base */
+}
+
+/* Efecto Mosaico para pantallas grandes */
+@media (min-width: 768px) {
+    .item-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .item-wide {
+        grid-column: span 2;
+    }
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover .overlay { opacity: 1; }
+
+.overlay h4 {
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* --- 7. Testimonios --- */
+.testimonial-card {
+    background: var(--off-white);
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author h5 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.author span {
+    font-size: 0.8rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* --- 8. Contacto --- */
+.contact-section {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    padding: 5rem 0;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info h2 { font-size: 3rem; margin-bottom: 1rem; }
+.contact-info p { color: #aaa; margin-bottom: 2rem; }
+
+.info-list li {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.info-list a { color: #ccc; transition: 0.3s; }
+.info-list a:hover { color: var(--white); }
+
+/* --- Formulario Mejorado (Premium) --- */
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    color: var(--text-dark);
+    /* Sombra profunda para efecto flotante */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Borde decorativo superior */
+.contact-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.contact-form-wrapper h3 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #666;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+/* Inputs y Textareas más bonitos */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer click en el input (Focus) */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(94, 84, 142, 0.1); /* Resplandor morado suave */
+    transform: translateY(-2px);
+}
+
+/* Efecto en el label cuando el input tiene foco */
+.form-group input:focus + label, 
+.form-group textarea:focus + label {
+    color: var(--primary);
+}
+
+/* Botón del formulario con gradiente */
+.btn-glow {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(94, 84, 142, 0.4);
+    transition: all 0.4s ease;
+}
+
+.btn-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(94, 84, 142, 0.5);
+    letter-spacing: 1px; /* Efecto sutil de expansión de texto */
+}
+
+/* Brillo al pasar el mouse por el botón */
+.btn-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-glow:hover::after {
+    left: 100%;
+}
+
+/* --- 9. Footer --- */
+footer {
+    background: #1a1a1a;
+    color: #888;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+footer h3 { color: var(--white); margin-bottom: 1rem; }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-links a:hover { background: var(--primary); }
+
+/* --- 10. Responsividad (Móvil) --- */
+@media (max-width: 900px) {
+    :root { --container-width: 100%; }
+    
+    .menu-toggle, .menu-close { display: block; }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto a la derecha */
+        background-color: var(--white);
+        width: 80%;
+        height: 100vh;
+        flex-direction: column;
+        padding-top: 5rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: 0.4s;
+    }
+
+    .show-menu { right: 0; }
+    .menu-close { position: absolute; top: 1.5rem; right: 1.5rem; }
+
+    .hero h1 { font-size: 2.5rem; }
+    
+    .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+    
+    .gallery-item.item-large, .gallery-item.item-wide {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* --- Botón Flotante WhatsApp --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* Verde oficial */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000; /* Siempre encima */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1) rotate(-10deg); /* Efecto pop y rotación */
+    background-color: #1ebe57;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); /* Brillo verde */
+}
+
+/* Animación de pulso para llamar la atención */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-btn {
+    animation: pulse-green 2s infinite;
+}
+
+/* =========================================
+   ESTILOS NUEVOS PARA GALERIA.HTML
+   ========================================= */
+
+/* Header de Página (Más corto que el Hero) */
+.page-header {
+    position: relative;
+    height: 50vh; /* Altura media pantalla */
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    background: url('https://edwardmedran.github.io/ConfeccionesErica/img/fondoDifuminado.png') no-repeat center center/cover;
+    margin-top: var(--header-height); /* Para que no se esconda tras el navbar */
+}
+
+.page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 20, 50, 0.6); /* Oscurecer imagen */
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Filtros de Galería */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Grid de Página Galería */
+.gallery-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    /* auto-rows define altura base */
+    grid-auto-rows: 300px; 
+    grid-auto-flow: dense; /* Ayuda a encajar piezas tipo mosaico */
+}
+
+/* Clases para ocultar/mostrar items con filtro JS */
+.gallery-item.hide {
+    display: none;
+}
+.gallery-item.show {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Link activo en navbar */
+.active-link {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* =========================================
+   AJUSTES FINALES PARA MÓVIL (Responsive)
+   ========================================= */
+
+/* 1. Evita que el menú fijo tape los títulos al hacer clic en los enlaces */
+html {
+    scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+@media (max-width: 480px) {
+    /* 2. Ajuste para pantallas muy pequeñas (evita desborde horizontal) */
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    /* Forzar una sola columna en móviles pequeños para que las tarjetas no se vean aplastadas */
+    .grid-3, .gallery-page-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* 3. Reducir tamaño de textos gigantes */
+    .hero h1 {
+        font-size: 2.2rem; /* Más pequeño para que no ocupe toda la pantalla */
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    /* 4. Reducir espacios verticales (5rem es mucho para móvil) */
+    .section {
+        padding: 3rem 0;
+    }
+
+    /* 5. Ajustar botón WhatsApp para que no estorbe */
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 28px;
+    }
+}
+
+/* 6. Asegurar que el menú móvil tenga espacio suficiente */
+@media (max-width: 900px) {
+    .nav-menu {
+        overflow-y: auto; /* Permite scroll si el menú es muy largo en horizontal */
+    }
+}
