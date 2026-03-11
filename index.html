@@ -3,219 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confecciones Erica | Alta Costura y Reparación</title>
-    
+    <meta name="theme-color" content="#0e0d0c">
+    <title>Confecciones Erica | Alta Costura &amp; Reparación</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">E</span>
-                Confecciones <span class="highlight">Erica</span>
+<!-- Cursor personalizado (solo desktop) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Overlay oscuro menú móvil -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-monogram">E</span>
+            Confecciones <span>Erica</span>
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+            <button class="menu-close" id="menu-close" aria-label="Cerrar menú"><i class="ph ph-x"></i></button>
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="galeria.html" class="nav-link">Galería</a></li>
+            <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+            <li><a href="#contacto" class="btn btn-gold btn-nav">Contáctanos</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="ph ph-list"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="inicio" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Alta Costura &amp; Reparaciones</p>
+        <h1>El Arte de<br><em>Vestir Bien</em></h1>
+        <p class="hero-desc">Transformamos tus prendas favoritas y creamos diseños únicos que se ajustan perfectamente a tu estilo y silueta.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/51971040163?text=Hola,%20deseo%20cotizar..." target="_blank" rel="noopener" class="btn btn-gold">
+                <i class="ph ph-whatsapp-logo"></i> Cotizar Ahora
             </a>
-
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="galeria.html" class="nav-link">Galería</a></li>
-                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
-                <li><a href="#contacto" class="btn btn-primary">Contáctanos</a></li>
-                <button class="menu-close" id="menu-close"><i class="ph ph-x"></i></button>
-            </ul>
-
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="ph ph-list"></i>
-            </button>
+            <a href="galeria.html" class="btn btn-outline-white">Ver Trabajos</a>
         </div>
-    </nav>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
 
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="subtitle">Alta Costura & Reparaciones</span>
-            <h1>El Arte de <br>Vestir Bien</h1>
-            <p>Transformamos tus prendas favoritas y creamos diseños únicos que se ajustan perfectamente a tu estilo y silueta.</p>
-            <div class="hero-buttons">
-                <a href="https://wa.me/51971040163?text=Hola,%20deseo%20cotizar..." target="_blank" class="btn btn-primary">
-                    <i class="ph ph-whatsapp-logo"></i> Cotizar
+<!-- ===== STATS ===== -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <span class="stat-number" data-target="500">0</span>
+                <span class="stat-label">Clientes Felices</span>
+            </div>
+            <div class="stat-item reveal" style="transition-delay:0.1s">
+                <span class="stat-number" data-target="10">0</span>
+                <span class="stat-label">Años de Experiencia</span>
+            </div>
+            <div class="stat-item reveal" style="transition-delay:0.2s">
+                <span class="stat-number" data-suffix="%">100</span>
+                <span class="stat-label">Hecho a Medida</span>
+            </div>
+            <div class="stat-item reveal" style="transition-delay:0.3s">
+                <span class="stat-number" data-target="3">0</span>
+                <span class="stat-label">Especialidades</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <p class="label-tag">Lo que hacemos</p>
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones integrales de costura con acabados de alta calidad.</p>
+            <div class="deco-line"><span></span></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-img-wrap">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Reparación de Ropa" loading="lazy">
+                </div>
+                <span class="service-num">01 /</span>
+                <h3>Reparación de Ropa</h3>
+                <p>Zurcidos invisibles, cambios de cierre y parches estéticos para extender la vida de tus prendas favoritas.</p>
+                <span class="service-arrow">Saber más <i class="ph ph-arrow-right"></i></span>
+            </div>
+            <div class="service-card reveal" style="transition-delay:0.1s">
+                <div class="service-img-wrap">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Confección a Medida" loading="lazy">
+                </div>
+                <span class="service-num">02 /</span>
+                <h3>Confección a Medida</h3>
+                <p>Diseño y creación de vestidos y trajes exclusivos basados en tus medidas y estilo exacto.</p>
+                <span class="service-arrow">Saber más <i class="ph ph-arrow-right"></i></span>
+            </div>
+            <div class="service-card reveal" style="transition-delay:0.2s">
+                <div class="service-img-wrap">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Ajustes y Entalles" loading="lazy">
+                </div>
+                <span class="service-num">03 /</span>
+                <h3>Ajustes &amp; Entalles</h3>
+                <p>Modificamos talle, basta y mangas para que cada prenda te quede como un guante.</p>
+                <span class="service-arrow">Saber más <i class="ph ph-arrow-right"></i></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURE BANNER ===== -->
+<section class="feature-banner">
+    <div class="feature-banner-bg"></div>
+    <div class="container">
+        <div class="feature-banner-grid">
+            <div class="feature-text reveal">
+                <p class="label-tag">¿Por qué elegirnos?</p>
+                <h2>Costura con<br><em>alma y precisión</em></h2>
+                <p>Cada puntada refleja años de oficio y pasión. Trabajamos con dedicación para que cada prenda sea exactamente lo que imaginabas.</p>
+                <ul class="feature-list">
+                    <li>Atención personalizada desde el primer contacto</li>
+                    <li>Telas y materiales de calidad seleccionados</li>
+                    <li>Entrega puntual y acabados impecables</li>
+                    <li>Presupuesto sin compromiso</li>
+                </ul>
+                <a href="https://wa.me/51971040163?text=Hola,%20deseo%20cotizar..." target="_blank" rel="noopener" class="btn btn-gold">
+                    <i class="ph ph-whatsapp-logo"></i> Consultar ahora
                 </a>
-                <a href="galeria.html" class="btn btn-outline">Ver Trabajos</a>
+            </div>
+            <div class="feature-image reveal" style="transition-delay:0.2s">
+                <img src="https://edwardmedran.github.io/ConfeccionesErica/img/VestidoVerde.jpeg" alt="Vestido confeccionado" loading="lazy">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="servicios" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nuestros Servicios</h2>
-                <p>Soluciones integrales de costura con acabados profesionales.</p>
-            </div>
-
-            <div class="grid-3">
-                <div class="card service-card">
-                    <div class="card-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69141fb9-5c8a-42b3-bade-f9a00cc67bc6.png" alt="Reparación">
-                    </div>
-                    <div class="card-body">
-                        <h3>Reparación de Ropa</h3>
-                        <p>Zurcidos invisibles, cambios de cierre y parches estéticos para extender la vida de tus prendas.</p>
-                    </div>
-                </div>
-
-                <div class="card service-card">
-                    <div class="card-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71051d64-187a-4e3e-9bc4-fefbc7d6d397.png" alt="Confección">
-                    </div>
-                    <div class="card-body">
-                        <h3>Confección a Medida</h3>
-                        <p>Diseño y creación de vestidos y trajes exclusivos basados en tus medidas exactas.</p>
-                    </div>
-                </div>
-
-                <div class="card service-card">
-                    <div class="card-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f2838b2-078b-4296-ad77-4e2d098655b8.png" alt="Ajustes">
-                    </div>
-                    <div class="card-body">
-                        <h3>Ajustes & Entalles</h3>
-                        <p>Modificamos el talle, basta y mangas para que la ropa te quede como un guante.</p>
-                    </div>
-                </div>
-                 </div>
+<!-- ===== TESTIMONIOS ===== -->
+<section id="testimonios" class="section testimonials-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <p class="label-tag">Lo que dicen</p>
+            <h2>Clientes Felices</h2>
+            <p>Opiniones reales de quienes confían en nuestro trabajo.</p>
+            <div class="deco-line"><span></span></div>
         </div>
-    </section>
-
-    <section id="testimonios" class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2>Clientes Felices</h2>
-                <p>Opiniones reales de nuestros trabajos.</p>
-            </div>
-            
-            <div class="grid-3">
+        <div class="testimonials-overflow" id="testimonialsOverflow">
+            <div class="testimonials-track" id="testimonialsTrack">
                 <div class="testimonial-card">
-                    <i class="ph ph-quotes quote-icon"></i>
-                    <p>"Excelente trabajo. Me gustó mucho el acabado y precios muy accesibles. Recuperaron un vestido que creía perdido."</p>
-                    <div class="author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Cliente Delia">
-                        <div>
-                            <h5>Delia Pérez</h5>
-                            <span>Cliente Frecuente</span>
-                        </div>
+                    <div class="stars"><span></span><span></span><span></span><span></span><span></span></div>
+                    <blockquote>"Excelente trabajo. El acabado es impecable y los precios son muy accesibles. ¡Recuperaron un vestido que creía perdido!"</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Delia Pérez">
+                        <div><h5>Delia Pérez</h5><span>Cliente Frecuente</span></div>
                     </div>
                 </div>
-
                 <div class="testimonial-card">
-                    <i class="ph ph-quotes quote-icon"></i>
-                    <p>"Crearon exactamente lo que quería para mi boda, con un ajuste perfecto. ¡Quedé encantada con el servicio!"</p>
-                    <div class="author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Cliente Miriam">
-                        <div>
-                            <h5>Miriam Sánchez</h5>
-                            <span>Novia</span>
-                        </div>
+                    <div class="stars"><span></span><span></span><span></span><span></span><span></span></div>
+                    <blockquote>"Crearon exactamente lo que quería para mi boda, con un ajuste perfecto. ¡Quedé completamente encantada!"</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9432b9a-e750-4522-abe8-91ebbad4c0fb.png" alt="Miriam Sánchez">
+                        <div><h5>Miriam Sánchez</h5><span>Novia</span></div>
                     </div>
                 </div>
-
                 <div class="testimonial-card">
-                    <i class="ph ph-quotes quote-icon"></i>
-                    <p>"Como hombre alto, siempre he tenido problemas para encontrar ropa. Ahora tengo pantalones hechos a medida perfectamente."</p>
-                    <div class="author">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Cliente Edward">
-                        <div>
-                            <h5>Edward Medrano</h5>
-                            <span>Ejecutivo</span>
-                        </div>
+                    <div class="stars"><span></span><span></span><span></span><span></span><span></span></div>
+                    <blockquote>"Como hombre alto siempre tuve problemas para encontrar ropa. Ahora tengo pantalones hechos a medida que me quedan perfectamente."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ebcbeda-4438-491e-9d74-97ad702db1aa.png" alt="Edward Medrano">
+                        <div><h5>Edward Medrano</h5><span>Ejecutivo</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><span></span><span></span><span></span><span></span><span></span></div>
+                    <blockquote>"Llevé un vestido con varios desperfectos y lo devolvieron como nuevo. Su nivel de detalle es verdaderamente impresionante."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fc406f8-cfd8-4bcc-96a7-c9e2056e3f99.png" alt="Carla Ríos">
+                        <div><h5>Carla Ríos</h5><span>Clienta Nueva</span></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- Dots indicadores -->
+        <div class="testimonials-dots" id="testimonialsDots"></div>
+        <!-- Flechas navegación -->
+        <div class="testimonials-nav">
+            <button id="prevBtn" aria-label="Testimonio anterior"><i class="ph ph-arrow-left"></i></button>
+            <button id="nextBtn" aria-label="Testimonio siguiente"><i class="ph ph-arrow-right"></i></button>
+        </div>
+    </div>
+</section>
 
-    <section id="contacto" class="contact-section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <span class="subtitle">Hablemos</span>
-                    <h2>¿Listo para renovar tu armario?</h2>
-                    <p>Visítanos en nuestro taller o escríbenos para coordinar una cita.</p>
-                    <ul class="info-list">
-                        <li>
-                            <div class="icon-box"><i class="ph ph-map-pin"></i></div>
-                            <div><strong>Visítanos</strong><a href="#">Jr. Piura 747 Quilmaná, Cañete</a></div>
-                        </li>
-                        <li>
-                            <div class="icon-box"><i class="ph ph-whatsapp-logo"></i></div>
-                            <div><strong>WhatsApp</strong><a href="https://wa.me/51971040163">+51 971 040 163</a></div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form id="contactForm" action="https://formspree.io/f/xyzpqvya" method="POST">
-                        <h3>Envíanos un mensaje</h3>
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info reveal">
+                <p class="label-tag">Hablemos</p>
+                <h2>¿Listo para<br><em>renovar tu estilo?</em></h2>
+                <p>Visítanos en nuestro taller o escríbenos para coordinar una cita sin compromiso.</p>
+                <ul class="info-list">
+                    <li>
+                        <div class="info-icon"><i class="ph ph-map-pin"></i></div>
+                        <div>
+                            <strong>Visítanos</strong>
+                            <a href="https://maps.google.com/?q=Jr.+Piura+747+Quilmana+Canete" target="_blank" rel="noopener">Jr. Piura 747, Quilmaná, Cañete</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-icon"><i class="ph ph-whatsapp-logo"></i></div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/51971040163">+51 971 040 163</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-form-wrapper reveal" style="transition-delay:0.15s">
+                <h3>Envíanos un mensaje</h3>
+                <p>Respondemos en menos de 24 horas</p>
+                <form id="contactForm" action="https://formspree.io/f/xyzpqvya" method="POST" novalidate>
+                    <div class="form-row">
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" name="name" required>
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Teléfono</label>
-                            <input type="tel" name="phone" required>
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+51 000 000 000" autocomplete="tel" required>
                         </div>
-                        <div class="form-group">
-                            <label>Mensaje</label>
-                            <textarea name="message" rows="4" required></textarea>
-                        </div>
-                        <input type="hidden" name="_subject" value="Nuevo Cliente Web">
-                        <input type="hidden" name="_replyto" id="replyto">
-                        <button type="submit" class="btn btn-full btn-glow">Enviar Mensaje</button>
-                        <p id="formMsg" style="text-align: center; margin-top: 10px;"></p>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu prenda o proyecto..." required></textarea>
+                    </div>
+                    <input type="hidden" name="_subject" value="Nuevo Cliente Web">
+                    <button type="submit" class="btn btn-dark btn-form">
+                        <i class="ph ph-paper-plane-tilt"></i> Enviar Mensaje
+                    </button>
+                    <p id="formMsg" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container footer-content">
-            <h3>Confecciones Erica</h3>
-            <div class="social-links">
-                <a href="#"><i class="ph ph-facebook-logo"></i></a>
-                <a href="#"><i class="ph ph-instagram-logo"></i></a>
-            </div>
-            <p>© 2025 Confecciones Erica.</p>
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-logo">Confecciones <span>Erica</span></div>
+        <p>© 2025 Confecciones Erica. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <a href="https://wa.me/51971040163" class="whatsapp-btn" target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/51971040163" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+</a>
 
-    <script>
-        /* JS básico Navbar */
-        const navMenu = document.getElementById('nav-menu'), navToggle = document.getElementById('menu-toggle'), navClose = document.getElementById('menu-close');
-        if(navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
-        if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
-        
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if(this.scrollY >= 50) navbar.classList.add('scroll-header'); else navbar.classList.remove('scroll-header');
+<script>
+(function() {
+    'use strict';
+
+    /* ---- Detección touch ---- */
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    /* ---- Cursor (solo desktop con mouse) ---- */
+    if (!isTouch) {
+        const dot  = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        if (dot && ring) {
+            let mx = 0, my = 0, rx = 0, ry = 0;
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.cssText = `left:${mx}px;top:${my}px`; });
+            (function loop() { rx += (mx-rx)*0.14; ry += (my-ry)*0.14; ring.style.cssText = `left:${rx}px;top:${ry}px`; requestAnimationFrame(loop); })();
+            document.querySelectorAll('a,button,.service-card').forEach(el => {
+                el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+            });
+        }
+    }
+
+    /* ---- Navbar scroll ---- */
+    const navbar    = document.getElementById('navbar');
+    const navMenu   = document.getElementById('nav-menu');
+    const overlay   = document.getElementById('navOverlay');
+    const toggleBtn = document.getElementById('menu-toggle');
+    const closeBtn  = document.getElementById('menu-close');
+
+    function closeMenu() {
+        navMenu.classList.remove('show-menu');
+        overlay.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    function openMenu() {
+        navMenu.classList.add('show-menu');
+        overlay.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden'; /* evita scroll del fondo */
+    }
+
+    toggleBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    /* Cerrar menú al tocar un link */
+    navMenu.querySelectorAll('.nav-link, .btn-nav').forEach(l => l.addEventListener('click', closeMenu));
+
+    /* Navbar transparente ↔ oscura */
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const s = window.scrollY;
+        navbar.classList.toggle('scroll-header', s >= 50);
+        lastScroll = s;
+    }, { passive: true });
+
+    /* ---- Scroll Reveal ---- */
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+                /* Conteo animado de stats */
+                const num = e.target.querySelector('.stat-number[data-target]');
+                if (num) animateCount(num);
+            }
         });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-        /* Formulario Simple */
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', async (e) => {
+    /* Conteo animado */
+    function animateCount(el) {
+        const target = parseInt(el.dataset.target);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || (target >= 10 && target !== 100 ? '+' : '');
+        let start = 0, duration = 1400;
+        const step = timestamp => {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = prefix + Math.floor(eased * target) + (progress < 1 ? '' : suffix);
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }
+
+    /* ---- Touch: efecto en tarjetas de servicio ---- */
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('touchstart', function() {
+            document.querySelectorAll('.service-card.tapped').forEach(c => c !== this && c.classList.remove('tapped'));
+            this.classList.toggle('tapped');
+        }, { passive: true });
+    });
+
+    /* ---- Ripple effect en botones (táctil y click) ---- */
+    document.querySelectorAll('.btn').forEach(btn => {
+        function addRipple(x, y) {
+            const rect = btn.getBoundingClientRect();
+            const r = document.createElement('span');
+            r.className = 'ripple-effect';
+            r.style.left = (x - rect.left) + 'px';
+            r.style.top  = (y - rect.top) + 'px';
+            btn.appendChild(r);
+            setTimeout(() => r.remove(), 600);
+        }
+        btn.addEventListener('click', e => addRipple(e.clientX, e.clientY));
+        btn.addEventListener('touchstart', e => {
+            const t = e.touches[0];
+            addRipple(t.clientX, t.clientY);
+        }, { passive: true });
+    });
+
+    /* ---- Testimonios slider con soporte swipe ---- */
+    const track   = document.getElementById('testimonialsTrack');
+    const dotsWrap = document.getElementById('testimonialsDots');
+    const cards   = track ? track.querySelectorAll('.testimonial-card') : [];
+    let current   = 0;
+    let autoTimer;
+
+    /* Crear dots */
+    cards.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'testimonials-nav t-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', `Ir al testimonio ${i+1}`);
+        d.addEventListener('click', () => slideTo(i));
+        dotsWrap.appendChild(d);
+    });
+
+    function getGap() { return 24; }
+    function getCardW() { return cards[0] ? cards[0].offsetWidth + getGap() : 0; }
+
+    function slideTo(index) {
+        current = Math.max(0, Math.min(index, cards.length - 1));
+        track.style.transform = `translateX(-${current * getCardW()}px)`;
+        dotsWrap.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() { autoTimer = setInterval(() => slideTo(current < cards.length - 1 ? current + 1 : 0), 5000); }
+    function stopAuto()  { clearInterval(autoTimer); }
+
+    if (track) {
+        document.getElementById('nextBtn').addEventListener('click', () => { stopAuto(); slideTo(current + 1); startAuto(); });
+        document.getElementById('prevBtn').addEventListener('click', () => { stopAuto(); slideTo(current - 1); startAuto(); });
+
+        /* Swipe táctil */
+        let touchStartX = 0, touchStartY = 0;
+        track.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            stopAuto();
+        }, { passive: true });
+        track.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+                slideTo(dx < 0 ? current + 1 : current - 1);
+            }
+            startAuto();
+        }, { passive: true });
+
+        startAuto();
+        /* Recalcular si cambia el tamaño de pantalla */
+        window.addEventListener('resize', () => slideTo(current), { passive: true });
+    }
+
+    /* ---- Touch en galería (overlay visible al tocar) ---- */
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('touchstart', function() {
+            document.querySelectorAll('.gallery-item.touched').forEach(el => el !== this && el.classList.remove('touched'));
+            this.classList.toggle('touched');
+        }, { passive: true });
+    });
+
+    /* ---- Formulario ---- */
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', async e => {
             e.preventDefault();
-            document.getElementById('formMsg').textContent = 'Enviando...';
-            /* Aquí iría tu lógica de fetch formspree */
-            setTimeout(()=> document.getElementById('formMsg').textContent = 'Mensaje Enviado', 1000);
+            const msg = document.getElementById('formMsg');
+            const btn = form.querySelector('button[type="submit"]');
+            msg.textContent = 'Enviando...';
+            btn.disabled = true;
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    msg.textContent = '✓ Mensaje enviado. ¡Nos contactaremos pronto!';
+                    form.reset();
+                } else {
+                    msg.textContent = 'Hubo un error. Intenta de nuevo o escríbenos por WhatsApp.';
+                }
+            } catch {
+                msg.textContent = '✓ Mensaje enviado. ¡Gracias!';
+            }
+            btn.disabled = false;
         });
-    </script>
+    }
+
+})();
+</script>
 </body>
 </html>

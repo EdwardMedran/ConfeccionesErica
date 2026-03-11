@@ -3,163 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0e0d0c">
     <title>Galería | Confecciones Erica</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">E</span>
-                Confecciones <span class="highlight">Erica</span>
-            </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="galeria.html" class="nav-link active-link">Galería</a></li>
-                <li><a href="index.html#testimonios" class="nav-link">Testimonios</a></li>
-                <li><a href="index.html#contacto" class="btn btn-primary">Contáctanos</a></li>
-                <button class="menu-close" id="menu-close"><i class="ph ph-x"></i></button>
-            </ul>
-            <button class="menu-toggle" id="menu-toggle"><i class="ph ph-list"></i></button>
-        </div>
-    </nav>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="nav-overlay" id="navOverlay"></div>
 
-    <header class="page-header">
-        <div class="page-header-overlay"></div>
-        <div class="container page-header-content">
-            <h1>Nuestra Colección</h1>
-            <p>Un recorrido visual por nuestros mejores trabajos de confección y restauración.</p>
-        </div>
-    </header>
+<nav class="navbar scroll-header" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-monogram">E</span>
+            Confecciones <span>Erica</span>
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+            <button class="menu-close" id="menu-close" aria-label="Cerrar menú"><i class="ph ph-x"></i></button>
+            <li><a href="index.html" class="nav-link">Inicio</a></li>
+            <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="galeria.html" class="nav-link active-link">Galería</a></li>
+            <li><a href="index.html#testimonios" class="nav-link">Testimonios</a></li>
+            <li><a href="index.html#contacto" class="btn btn-gold btn-nav">Contáctanos</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="ph ph-list"></i>
+        </button>
+    </div>
+</nav>
 
-    <section class="section">
-        <div class="container">
-            
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="vestidos">Vestidos</button>
-                <button class="filter-btn" data-filter="reparacion">Reparaciones</button>
-                <button class="filter-btn" data-filter="medida">A Medida</button>
+<header class="page-header">
+    <div class="page-header-overlay"></div>
+    <div class="container page-header-content">
+        <p class="label-tag" style="margin-bottom:1rem">Nuestro portafolio</p>
+        <h1>Nuestra Colección</h1>
+        <p>Un recorrido visual por nuestros mejores trabajos de confección y restauración.</p>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="gallery-filters" role="group" aria-label="Filtrar galería">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="vestidos">Vestidos</button>
+            <button class="filter-btn" data-filter="reparacion">Reparaciones</button>
+            <button class="filter-btn" data-filter="medida">A Medida</button>
+        </div>
+
+        <div class="gallery-page-grid" id="galleryGrid">
+            <div class="gallery-item item-large show" data-category="vestidos">
+                <img src="img/VestidoVerde.jpeg" alt="Ajuste de Vestido" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Ajuste de Vestido</h4><span>Fiesta / Gala</span></div>
+                </div>
             </div>
-
-            <div class="gallery-page-grid">
-                
-                <div class="gallery-item item-large" data-category="vestidos">
-                    <img src="img/VestidoVerde.jpeg" alt="Ajuste Vestido">
-                    <div class="overlay">
-                        <div>
-                            <h4>Ajuste de Vestido</h4>
-                            <span>Fiesta / Gala</span>
-                        </div>
-                    </div>
+            <div class="gallery-item show" data-category="reparacion">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Restauración de Cuero" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Restauración Cuero</h4><span>Renovación total</span></div>
                 </div>
-
-                <div class="gallery-item" data-category="reparacion">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Cuero">
-                    <div class="overlay">
-                        <div>
-                            <h4>Restauración Cuero</h4>
-                            <span>Renovación total</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="gallery-item show" data-category="medida">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Traje a Medida" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Traje a Medida</h4><span>Sastrería</span></div>
                 </div>
-
-                <div class="gallery-item" data-category="medida">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Sastre">
-                    <div class="overlay">
-                        <div>
-                            <h4>Traje a Medida</h4>
-                            <span>Sastrería</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="gallery-item item-wide show" data-category="vestidos">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestidos de Novia" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Vestidos de Novia</h4><span>Ajustes delicados</span></div>
                 </div>
-
-                <div class="gallery-item item-wide" data-category="vestidos">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Novia">
-                    <div class="overlay">
-                        <div>
-                            <h4>Vestidos de Novia</h4>
-                            <span>Ajustes delicados</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="gallery-item show" data-category="reparacion">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Transformaciones" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Transformaciones</h4><span>Upcycling</span></div>
                 </div>
-
-                <div class="gallery-item" data-category="reparacion">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Jeans">
-                    <div class="overlay">
-                        <div>
-                            <h4>Transformaciones</h4>
-                            <span>Upcycling</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="gallery-item show" data-category="medida">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Camisas a Medida" loading="lazy">
+                <div class="overlay">
+                    <div><h4>Camisas a Medida</h4><span>Caballeros</span></div>
                 </div>
-                 
-                 <div class="gallery-item" data-category="medida">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Camisas">
-                    <div class="overlay">
-                        <div>
-                            <h4>Camisas a Medida</h4>
-                            <span>Caballeros</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container footer-content">
-            <h3>Confecciones Erica</h3>
-            <div class="social-links">
-                <a href="#"><i class="ph ph-facebook-logo"></i></a>
-                <a href="#"><i class="ph ph-instagram-logo"></i></a>
-            </div>
-            <p>© 2025 Confecciones Erica.</p>
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-logo">Confecciones <span>Erica</span></div>
+        <p>© 2025 Confecciones Erica. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         </div>
-    </footer>
-    
-    <a href="https://wa.me/51971040163" class="whatsapp-btn" target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
+    </div>
+</footer>
 
-    <script>
-        // Menu Toggle
-        const navMenu = document.getElementById('nav-menu'), navToggle = document.getElementById('menu-toggle'), navClose = document.getElementById('menu-close');
-        if(navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
-        if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
+<a href="https://wa.me/51971040163" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+</a>
 
-        // Script de Filtros de Galería
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
+<script>
+(function() {
+    'use strict';
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remover clase active de todos los botones
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Agregar al clickeado
-                btn.classList.add('active');
+    const isTouch = window.matchMedia('(hover: none)').matches;
 
-                const filterValue = btn.getAttribute('data-filter');
+    /* Cursor */
+    if (!isTouch) {
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        if (dot && ring) {
+            let mx=0,my=0,rx=0,ry=0;
+            document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.cssText=`left:${mx}px;top:${my}px`; });
+            (function loop(){ rx+=(mx-rx)*0.14; ry+=(my-ry)*0.14; ring.style.cssText=`left:${rx}px;top:${ry}px`; requestAnimationFrame(loop); })();
+            document.querySelectorAll('a,button').forEach(el=>{
+                el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+                el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+            });
+        }
+    }
 
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.classList.remove('hide');
-                        item.classList.add('show');
-                    } else {
-                        item.classList.remove('show');
-                        item.classList.add('hide');
-                    }
-                });
+    /* Navbar */
+    const navbar  = document.getElementById('navbar');
+    const navMenu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('navOverlay');
+    const toggleBtn = document.getElementById('menu-toggle');
+    const closeBtn  = document.getElementById('menu-close');
+
+    function closeMenu() { navMenu.classList.remove('show-menu'); overlay.classList.remove('active'); toggleBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    function openMenu()  { navMenu.classList.add('show-menu'); overlay.classList.add('active'); toggleBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+
+    toggleBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    navMenu.querySelectorAll('.nav-link,.btn-nav').forEach(l => l.addEventListener('click', closeMenu));
+
+    window.addEventListener('scroll', () => navbar.classList.toggle('scroll-header', window.scrollY >= 50), { passive: true });
+
+    /* Ripple en botones */
+    document.querySelectorAll('.btn,.filter-btn').forEach(btn => {
+        function addRipple(x,y){ const rect=btn.getBoundingClientRect(); const r=document.createElement('span'); r.className='ripple-effect'; r.style.left=(x-rect.left)+'px'; r.style.top=(y-rect.top)+'px'; btn.appendChild(r); setTimeout(()=>r.remove(),600); }
+        btn.addEventListener('click', e => addRipple(e.clientX,e.clientY));
+        btn.addEventListener('touchstart', e => { addRipple(e.touches[0].clientX,e.touches[0].clientY); }, {passive:true});
+    });
+
+    /* Touch en galería */
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('touchstart', function() {
+            document.querySelectorAll('.gallery-item.touched').forEach(el => el!==this && el.classList.remove('touched'));
+            this.classList.toggle('touched');
+        }, { passive: true });
+    });
+
+    /* Filtros */
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.getAttribute('data-filter');
+            galleryItems.forEach(item => {
+                const match = f === 'all' || item.getAttribute('data-category') === f;
+                item.classList.toggle('hide', !match);
+                item.classList.toggle('show', match);
             });
         });
-    </script>
+    });
+
+})();
+</script>
 </body>
 </html>
