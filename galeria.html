@@ -17,7 +17,7 @@
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="nav-overlay" id="navOverlay"></div>
 
-<nav class="navbar scroll-header" id="navbar">
+<nav class="navbar scroll-header always-dark" id="navbar">
     <div class="container nav-container">
         <a href="index.html" class="logo">
             <span class="logo-monogram">E</span>
@@ -55,43 +55,116 @@
             <button class="filter-btn" data-filter="medida">A Medida</button>
         </div>
 
-        <div class="gallery-page-grid" id="galleryGrid">
-            <div class="gallery-item item-large show" data-category="vestidos">
-                <img src="img/VestidoVerde.jpeg" alt="Ajuste de Vestido" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Ajuste de Vestido</h4><span>Fiesta / Gala</span></div>
+        <div class="gallery-cards" id="galleryGrid">
+
+            <div class="gcard show" data-category="vestidos">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="img/VestidoVerde.jpeg" alt="Ajuste de Vestido" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">Vestidos</span>
+                    <h4 class="gcard-title">Ajuste de Vestido</h4>
+                    <p class="gcard-sub">Fiesta &amp; Gala</p>
                 </div>
             </div>
-            <div class="gallery-item show" data-category="reparacion">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Restauración de Cuero" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Restauración Cuero</h4><span>Renovación total</span></div>
+
+            <div class="gcard show" data-category="reparacion">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50b3dd4a-a2dd-4428-8fd0-b0d7c3b6de7e.png" alt="Restauración de Cuero" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">Reparación</span>
+                    <h4 class="gcard-title">Restauración Cuero</h4>
+                    <p class="gcard-sub">Renovación total</p>
                 </div>
             </div>
-            <div class="gallery-item show" data-category="medida">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Traje a Medida" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Traje a Medida</h4><span>Sastrería</span></div>
+
+            <div class="gcard show" data-category="medida">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50e14ee8-dc6e-4191-9a0a-9710426ec008.png" alt="Traje a Medida" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">A Medida</span>
+                    <h4 class="gcard-title">Traje a Medida</h4>
+                    <p class="gcard-sub">Sastrería</p>
                 </div>
             </div>
-            <div class="gallery-item item-wide show" data-category="vestidos">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestidos de Novia" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Vestidos de Novia</h4><span>Ajustes delicados</span></div>
+
+            <div class="gcard show" data-category="vestidos">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffceb206-136f-4a9e-97e8-538343df4fc9.png" alt="Vestidos de Novia" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">Vestidos</span>
+                    <h4 class="gcard-title">Vestidos de Novia</h4>
+                    <p class="gcard-sub">Ajustes delicados</p>
                 </div>
             </div>
-            <div class="gallery-item show" data-category="reparacion">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Transformaciones" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Transformaciones</h4><span>Upcycling</span></div>
+
+            <div class="gcard show" data-category="reparacion">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24baa4e2-af39-4bc6-8ad0-534cc67ebbce.png" alt="Transformaciones" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">Reparación</span>
+                    <h4 class="gcard-title">Transformaciones</h4>
+                    <p class="gcard-sub">Upcycling creativo</p>
                 </div>
             </div>
-            <div class="gallery-item show" data-category="medida">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Camisas a Medida" loading="lazy">
-                <div class="overlay">
-                    <div><h4>Camisas a Medida</h4><span>Caballeros</span></div>
+
+            <div class="gcard show" data-category="medida">
+                <div class="gcard-frame">
+                    <div class="gcard-img-wrap">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8676454-e3f6-4c3e-9f61-6f70b4daa255.png" alt="Camisas a Medida" loading="lazy">
+                        <div class="gcard-shine"></div>
+                    </div>
+                    <div class="gcard-corner tl"></div>
+                    <div class="gcard-corner tr"></div>
+                    <div class="gcard-corner bl"></div>
+                    <div class="gcard-corner br"></div>
+                </div>
+                <div class="gcard-info">
+                    <span class="gcard-cat">A Medida</span>
+                    <h4 class="gcard-title">Camisas a Medida</h4>
+                    <p class="gcard-sub">Caballeros</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -147,8 +220,6 @@
     overlay.addEventListener('click', closeMenu);
     navMenu.querySelectorAll('.nav-link,.btn-nav').forEach(l => l.addEventListener('click', closeMenu));
 
-    window.addEventListener('scroll', () => navbar.classList.toggle('scroll-header', window.scrollY >= 50), { passive: true });
-
     /* Ripple en botones */
     document.querySelectorAll('.btn,.filter-btn').forEach(btn => {
         function addRipple(x,y){ const rect=btn.getBoundingClientRect(); const r=document.createElement('span'); r.className='ripple-effect'; r.style.left=(x-rect.left)+'px'; r.style.top=(y-rect.top)+'px'; btn.appendChild(r); setTimeout(()=>r.remove(),600); }
@@ -157,7 +228,7 @@
     });
 
     /* Touch en galería */
-    document.querySelectorAll('.gallery-item').forEach(item => {
+    document.querySelectorAll('.gcard').forEach(item => {
         item.addEventListener('touchstart', function() {
             document.querySelectorAll('.gallery-item.touched').forEach(el => el!==this && el.classList.remove('touched'));
             this.classList.toggle('touched');
@@ -166,7 +237,7 @@
 
     /* Filtros */
     const filterBtns  = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryItems = document.querySelectorAll('.gcard');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));

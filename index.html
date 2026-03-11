@@ -408,12 +408,11 @@
         dotsWrap.appendChild(d);
     });
 
-    function getGap() { return 24; }
-    function getCardW() { return cards[0] ? cards[0].offsetWidth + getGap() : 0; }
-
     function slideTo(index) {
         current = Math.max(0, Math.min(index, cards.length - 1));
-        track.style.transform = `translateX(-${current * getCardW()}px)`;
+        // Mide el ancho real de la tarjeta desde el DOM para que sea siempre exacto
+        const cardW = cards[0] ? cards[0].offsetWidth : 0;
+        track.style.transform = `translateX(-${current * cardW}px)`;
         dotsWrap.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === current));
     }
 

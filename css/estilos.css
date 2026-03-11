@@ -277,21 +277,18 @@ img { max-width: 100%; display: block; }
 .testimonials-section { background: var(--cream); }
 .testimonials-overflow { overflow: hidden; }
 .testimonials-track {
-    display: flex; gap: 1.5rem;
+    display: flex; gap: 0;
     transition: transform 0.65s var(--ease-out);
     will-change: transform;
-    /* Soporte nativo scroll en móvil como fallback */
-    -webkit-overflow-scrolling: touch;
 }
 .testimonial-card {
-    background: white; padding: 2.5rem 2rem;
-    min-width: min(400px, 85vw);
+    background: white; padding: 2.5rem 2.5rem;
+    width: 100%;          /* se ajusta por JS a offsetWidth del overflow */
+    flex: 0 0 100%;       /* ocupa exactamente el contenedor visible */
     border: 1px solid rgba(0,0,0,0.07);
-    flex-shrink: 0;
-    /* Efecto entrada suave al aparecer */
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s;
+    box-sizing: border-box;
 }
-.testimonial-card:active { transform: scale(0.99); }
 
 /* Indicadores de página */
 .testimonials-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
@@ -430,6 +427,14 @@ footer p { font-size: 0.75rem; letter-spacing: 0.5px; }
 .active-link { color: white !important; }
 .active-link::after { width: 100% !important; }
 
+/* Navbar siempre oscuro (galería y páginas internas) */
+.navbar.always-dark {
+    background: rgba(14,13,12,0.97) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--border);
+}
+
 /* --- 16. Scroll Reveal --- */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -523,8 +528,8 @@ footer p { font-size: 0.75rem; letter-spacing: 0.5px; }
     .service-img-wrap { height: 180px; }
 
     /* Testimonios */
-    .testimonial-card { min-width: calc(100vw - 2rem); padding: 2rem 1.5rem; }
-    .testimonial-card blockquote { font-size: 1.1rem; }
+    .testimonial-card { padding: 2rem 1.5rem; }
+    .testimonial-card blockquote { font-size: 1.05rem; }
 
     /* Formulario */
     .form-row { grid-template-columns: 1fr; }
@@ -551,7 +556,7 @@ footer p { font-size: 0.75rem; letter-spacing: 0.5px; }
     .hero h1 { font-size: 2.4rem; }
     .gallery-page-grid { grid-template-columns: 1fr; }
     .gallery-item.item-large { grid-column: auto; aspect-ratio: 1; }
-    .testimonial-card { min-width: calc(100vw - 2rem); }
+
 }
 
 /* Efectos táctiles — ripple en botones */
@@ -565,4 +570,160 @@ footer p { font-size: 0.75rem; letter-spacing: 0.5px; }
     animation: ripple 0.5s linear;
     pointer-events: none;
     margin-left: -10px; margin-top: -10px;
+}
+
+/* ==========================================
+   GALERÍA — TARJETAS EDITORIALES CON MARCO
+   ========================================== */
+
+/* Fondo de sección ligeramente más cálido */
+.gallery-section-wrap { background: var(--cream); }
+
+/* Grid de tarjetas */
+.gallery-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* Tarjeta completa */
+.gcard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    transition: transform 0.45s var(--ease-out);
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .gcard:hover { transform: translateY(-6px); }
+    .gcard:hover .gcard-img-wrap img { transform: scale(1.07); filter: grayscale(0%); }
+    .gcard:hover .gcard-shine { opacity: 1; transform: translateX(100%); }
+    .gcard:hover .gcard-corner { border-color: var(--gold); }
+    .gcard:hover .gcard-title { color: var(--gold-dark); }
+}
+
+/* Toque móvil */
+.gcard.touched { transform: translateY(-4px); }
+.gcard.touched .gcard-corner { border-color: var(--gold); }
+.gcard.touched .gcard-title { color: var(--gold-dark); }
+.gcard.touched .gcard-img-wrap img { transform: scale(1.05); filter: grayscale(0%); }
+
+/* Marco con esquinas decorativas */
+.gcard-frame {
+    position: relative;
+    padding: 10px;                          /* espacio entre borde exterior y foto */
+    background: white;
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.08),
+        0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.4s;
+}
+
+.gcard:hover .gcard-frame,
+.gcard.touched .gcard-frame {
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.14),
+        0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Foto dentro del marco */
+.gcard-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: var(--cream);
+}
+
+.gcard-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(18%);
+    transition: transform 0.65s var(--ease-out), filter 0.5s;
+}
+
+/* Destello de luz al hover */
+.gcard-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.1s, transform 0.7s var(--ease-out);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Esquinas doradas tipo galería de arte */
+.gcard-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: rgba(201,168,76,0.45);
+    border-style: solid;
+    transition: border-color 0.4s;
+    z-index: 3;
+}
+.gcard-corner.tl { top: 4px; left: 4px;  border-width: 2px 0 0 2px; }
+.gcard-corner.tr { top: 4px; right: 4px; border-width: 2px 2px 0 0; }
+.gcard-corner.bl { bottom: 4px; left: 4px;  border-width: 0 0 2px 2px; }
+.gcard-corner.br { bottom: 4px; right: 4px; border-width: 0 2px 2px 0; }
+
+/* Info debajo de la tarjeta */
+.gcard-info {
+    padding: 0 0.2rem;
+}
+
+.gcard-cat {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+}
+
+.gcard-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    transition: color 0.35s;
+}
+
+.gcard-sub {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 300;
+}
+
+/* Ocultar/mostrar con filtros */
+.gcard.hide {
+    display: none;
+}
+.gcard.show {
+    animation: fadeInItem 0.5s var(--ease-out) both;
+}
+
+/* Responsive galería de tarjetas */
+@media (max-width: 900px) {
+    .gallery-cards { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+
+@media (max-width: 500px) {
+    .gallery-cards { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .gcard-corner { width: 13px; height: 13px; }
+    .gcard-frame { padding: 7px; }
+    .gcard-title { font-size: 1.05rem; }
+    .gcard-cat { font-size: 0.58rem; letter-spacing: 2px; }
+}
+
+@media (max-width: 360px) {
+    .gallery-cards { grid-template-columns: 1fr; gap: 1.8rem; }
 }
