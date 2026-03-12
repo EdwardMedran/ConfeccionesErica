@@ -19,7 +19,7 @@
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Jost', sans-serif;
 
-    --header-height: 70px;
+    --header-height: 80px;
     --container-width: 1180px;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -101,9 +101,37 @@ img { max-width: 100%; display: block; }
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 
-.logo { font-family: var(--font-display); font-size: 1.45rem; font-weight: 300; color: white; display: flex; align-items: center; gap: 0.55rem; letter-spacing: 0.5px; }
-.logo-monogram { width: 36px; height: 36px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1rem; font-weight: 600; flex-shrink: 0; }
-.logo span { color: var(--gold-light); }
+.logo { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+
+/* Imagen del logo — mix-blend-mode la integra sobre el fondo oscuro */
+.logo-img {
+    height: 62px;
+    width: 62px;
+    object-fit: contain;
+    flex-shrink: 0;
+    mix-blend-mode: luminosity;
+    filter: brightness(1.8) contrast(0.9);
+    transition: filter 0.3s, mix-blend-mode 0.3s;
+}
+/* Al hacer scroll el navbar se oscurece más — el logo queda más brillante */
+.scroll-header .logo-img,
+.always-dark .logo-img {
+    filter: brightness(2.2) contrast(0.85);
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+.logo-text em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+}
 
 .nav-menu { display: flex; align-items: center; gap: 2.2rem; }
 .nav-link { font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.72); position: relative; transition: color 0.3s; padding: 0.3rem 0; }
@@ -344,8 +372,29 @@ img { max-width: 100%; display: block; }
 /* --- 13. Footer --- */
 footer { background: var(--deep); color: rgba(255,255,255,0.38); padding: 2.5rem 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
-.footer-logo { font-family: var(--font-display); font-size: 1.35rem; color: rgba(255,255,255,0.65); font-weight: 300; }
-.footer-logo span { color: var(--gold); }
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.footer-logo-img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    mix-blend-mode: luminosity;
+    filter: brightness(1.6) contrast(0.85) saturate(0.6);
+    flex-shrink: 0;
+}
+.footer-logo span {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+}
+.footer-logo em {
+    font-style: italic;
+    color: var(--gold);
+}
 .social-links { display: flex; gap: 0.7rem; }
 .social-links a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); font-size: 1rem; transition: all 0.3s; }
 .social-links a:hover, .social-links a:active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
@@ -726,4 +775,11 @@ footer p { font-size: 0.75rem; letter-spacing: 0.5px; }
 
 @media (max-width: 360px) {
     .gallery-cards { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+
+/* Logo responsive */
+@media (max-width: 600px) {
+    .logo-img { height: 52px; width: 52px; }
+    .logo-text { font-size: 1.1rem; }
+    .footer-logo-img { height: 34px; width: 34px; }
 }
